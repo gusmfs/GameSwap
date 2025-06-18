@@ -18,7 +18,8 @@ header {
 }
 
 .logo-image {
-  height: 40px;
+  height: 60px;
+  scale: 2.3;
   width: auto;
 }
 

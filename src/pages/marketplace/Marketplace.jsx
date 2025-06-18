@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaSpinner, FaExclamationTriangle } from 'react-icons/fa';
-import MarketplaceFilters from '../components/marketplace/MarketplaceFilters';
-import SkinCard from '../components/marketplace/SkinCard';
-import { fetchSkinsByFilter } from '../services/skinsApi';
+import MarketplaceFilters from '../../components/marketplace/MarketplaceFilters';
+import SkinCard from '../../components/marketplace/SkinCard';
+import { fetchSkinsByFilter } from '../../services/skinsApi';
 import './Marketplace.css';
 
 const Marketplace = () => {
@@ -85,6 +85,12 @@ const Marketplace = () => {
 
   return (
     <main className="marketplace">
+      <div className="animated-background">
+        <div className="blur-circle circle1"></div>
+        <div className="blur-circle circle2"></div>
+        <div className="blur-circle circle3"></div>
+        <div className="blur-circle circle4"></div>
+      </div>
       <div className="marketplace-container">
         <div className="marketplace-header">
           <h1 className="marketplace-title">

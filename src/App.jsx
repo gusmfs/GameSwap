@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import Home from './pages/Home';
-import Marketplace from './pages/Marketplace';
+import Home from './pages/home/Home';
+import Marketplace from './pages/marketplace/Marketplace.jsx';
 import backgroundGif from './assets/Images/Background-Illustration.gif';
 import './App.css';
 
@@ -12,7 +12,6 @@ function App() {
     <Router>
       <div className="app">
         <div className="background-container">
-          <img src={backgroundGif} alt="Background" className="background-image" />
         </div>
         
         <Header />
