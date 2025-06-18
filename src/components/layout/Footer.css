@@ -1,0 +1,92 @@
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8));
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0 1rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.security-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ssl-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: "Tektur", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.security-details {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.security-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  font-family: "Electrolize", sans-serif;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.security-details svg {
+  color: #00ff88;
+}
+
+.copyright {
+  color: #888;
+  font-family: "Electrolize", sans-serif;
+  font-size: 0.8rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .security-details {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ssl-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .security-details p {
+    font-size: 0.8rem;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+} 
