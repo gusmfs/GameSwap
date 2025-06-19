@@ -21,6 +21,77 @@ export const fetchSkins = async () => {
   }
 };
 
+// Função para embaralhar array
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
+// Função para ordenar skins por tipo de arma variado
+const sortByVariedWeapons = (skins) => {
+  // Agrupar skins por tipo de arma
+  const weaponGroups = skins.reduce((groups, skin) => {
+    const weaponType = skin.weapon?.name || 'Other';
+    if (!groups[weaponType]) {
+      groups[weaponType] = [];
+    }
+    groups[weaponType].push(skin);
+    return groups;
+  }, {});
+
+  // Criar arrays para cada categoria principal
+  const knives = weaponGroups['Knife'] || [];
+  const gloves = weaponGroups['Gloves'] || [];
+  const rifles = ['AK-47', 'M4A4', 'M4A1-S', 'AWP'].reduce((acc, weapon) => {
+    return acc.concat(weaponGroups[weapon] || []);
+  }, []);
+  const others = Object.entries(weaponGroups)
+    .filter(([weapon]) => !['Knife', 'Gloves', 'AK-47', 'M4A4', 'M4A1-S', 'AWP'].includes(weapon))
+    .reduce((acc, [_, skins]) => acc.concat(skins), []);
+
+  // Embaralhar cada categoria
+  const shuffledKnives = shuffleArray(knives);
+  const shuffledGloves = shuffleArray(gloves);
+  const shuffledRifles = shuffleArray(rifles);
+  const shuffledOthers = shuffleArray(others);
+
+  // Distribuir os itens de forma intercalada
+  const result = [];
+  const maxItems = Math.max(
+    Math.ceil(shuffledKnives.length / 4),
+    Math.ceil(shuffledGloves.length / 4),
+    Math.ceil(shuffledRifles.length / 4),
+    Math.ceil(shuffledOthers.length / 4)
+  );
+
+  for (let i = 0; i < maxItems * 4; i++) {
+    const category = i % 4;
+    let item;
+    switch (category) {
+      case 0:
+        item = shuffledKnives[Math.floor(i / 4)];
+        break;
+      case 1:
+        item = shuffledGloves[Math.floor(i / 4)];
+        break;
+      case 2:
+        item = shuffledRifles[Math.floor(i / 4)];
+        break;
+      case 3:
+        item = shuffledOthers[Math.floor(i / 4)];
+        break;
+    }
+    if (item) {
+      result.push(item);
+    }
+  }
+
+  return result;
+};
+
 // Função para buscar skins por categoria/filtros
 export const fetchSkinsByFilter = async (filters = {}) => {
   try {
@@ -84,6 +155,9 @@ export const fetchSkinsByFilter = async (filters = {}) => {
         default:
           break;
       }
+    } else {
+      // Se não houver ordenação específica, usar a ordenação variada por padrão
+      filteredSkins = sortByVariedWeapons(filteredSkins);
     }
 
     return filteredSkins;
