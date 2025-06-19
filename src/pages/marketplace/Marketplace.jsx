@@ -6,9 +6,13 @@ import { fetchSkinsByFilter } from '../../services/skinsApi';
 import './Marketplace.css';
 
 const Marketplace = () => {
-  const [skins, setSkins] = useState([]);
+  //O estado skins é um array de skins, que é atualizado com os dados da API
+  const [skins , setSkins] = useState([]);
+  //O estado loading é um booleano que indica se a página está carregando para usar o FaSpinner (Animacao de carregamento)
   const [loading, setLoading] = useState(true);
+  //O estado error é uma string que indica se houve um erro ao carregar os dados para usar o FaExclamationTriangle (Animacao de erro)
   const [error, setError] = useState(null);
+  //O estado filters é um objeto que contém os filtros selecionados pelo usuário para usar o MarketplaceFilters
   const [filters, setFilters] = useState({
     search: null,
     rarity: null,
@@ -17,13 +21,17 @@ const Marketplace = () => {
     type: null,
     sortBy: null
   });
+  //O estado currentPage é um número que indica a página atual para usar a paginação
   const [currentPage, setCurrentPage] = useState(1);
+  //O estado itemsPerPage é um número que indica a quantidade de itens por página para usar a paginação
   const [itemsPerPage] = useState(12);
 
+  //O useEffect é um hook que é executado quando o componente é montado ou quando o estado filters é alterado
   useEffect(() => {
     loadSkins();
   }, [filters]);
 
+  //O loadSkins é uma função assíncrona que carrega as skins com base nos filtros selecionados
   const loadSkins = async () => {
     try {
       setLoading(true);
@@ -38,7 +46,7 @@ const Marketplace = () => {
       setLoading(false);
     }
   };
-
+  //O handleFiltersChange é uma função que atualiza o estado filters com os novos filtros selecionados o newFilters é passado como parametro para atualizar o estado filters
   const handleFiltersChange = (newFilters) => {
     setFilters(newFilters);
   };
