@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="copyright">
-          &copy; 2025 GameSwap - Marketplace de Skins CS2 - Projeto Acadêmico
+          &copy; 2025 GameSwap -Desenvolvido por Gustavo Medeiros, Michael Marotto, Davi Grabalos, Lívia Scoralick
         </p>
       </div>
     </footer>

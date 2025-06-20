@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../providers/AuthProvider';
 import authService from '../../services/authService';
 import './Login.css';
@@ -10,7 +10,11 @@ const Login = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuth();
+
+  // Pega o caminho de redirecionamento se existir
+  const from = location.state?.from?.pathname || '/profile';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +35,8 @@ const Login = () => {
       setIsLoading(true);
       const user = await authService.login(email, password);
       login(user);
-      navigate('/profile');
+      // Redireciona para a página que o usuário tentou acessar
+      navigate(from, { replace: true });
     } catch (err) {
       setError('Email ou senha incorretos');
     } finally {
