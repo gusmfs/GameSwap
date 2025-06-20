@@ -102,7 +102,7 @@ const Marketplace = () => {
       <div className="marketplace-container">
         <div className="marketplace-header">
           <h1 className="marketplace-title">
-            Marketplace de Skins CS2
+            Marketplace CS2
           </h1>
           <p className="marketplace-subtitle">
             Descubra e adquira as melhores skins do Counter-Strike 2

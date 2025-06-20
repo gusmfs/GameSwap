@@ -1,0 +1,186 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-card {
+  background: rgba(13, 17, 23, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2),
+              0 0 40px rgba(0, 212, 255, 0.1);
+  animation: cardAppear 0.5s ease-out;
+}
+
+.auth-card h1 {
+  font-family: "Tektur", sans-serif;
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.auth-subtitle {
+  font-family: "Electrolize", sans-serif;
+  color: #888;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-family: "Electrolize", sans-serif;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-family: "Electrolize", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submit-button {
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: "Tektur", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s linear infinite;
+}
+
+.error-message {
+  background: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.3);
+  color: #ff5252;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: "Electrolize", sans-serif;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-links {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: "Electrolize", sans-serif;
+  color: #888;
+}
+
+.auth-link {
+  color: #00d4ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 1rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .auth-card h1 {
+    font-size: 2rem;
+  }
+
+  .submit-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+} 

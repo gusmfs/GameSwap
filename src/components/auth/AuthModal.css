@@ -1,0 +1,140 @@
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.auth-modal {
+  background: rgba(13, 17, 23, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2),
+              0 0 40px rgba(0, 212, 255, 0.1);
+  animation: modalAppear 0.3s ease-out;
+}
+
+.auth-modal-content {
+  text-align: center;
+}
+
+.auth-modal h2 {
+  font-family: "Tektur", sans-serif;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.auth-modal p {
+  font-family: "Electrolize", sans-serif;
+  color: #ccc;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-button {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-family: "Tektur", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.login-button {
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: white;
+}
+
+.register-button {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+}
+
+.button-text {
+  position: relative;
+  z-index: 1;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.5), rgba(0, 153, 255, 0.2));
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.auth-button:hover {
+  transform: translateY(-2px);
+}
+
+.auth-button:hover .button-glow {
+  opacity: 1;
+}
+
+.login-button:hover {
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+}
+
+.register-button:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-modal {
+    padding: 1.5rem;
+  }
+
+  .auth-modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-modal p {
+    font-size: 0.9rem;
+  }
+
+  .auth-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+} 

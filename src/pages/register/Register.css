@@ -1,0 +1,42 @@
+/* Import base auth styles */
+@import '../login/Login.css';
+
+/* Register-specific styles */
+.input-hint {
+  font-family: "Electrolize", sans-serif;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* Adjust card size for register form */
+.auth-card {
+  padding: 2rem;
+}
+
+/* Adjust spacing for the longer form */
+.auth-form {
+  gap: 1.25rem;
+}
+
+/* Animation for form groups */
+.form-group {
+  animation: slideIn 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} 

@@ -1,0 +1,201 @@
+.profile-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: "Tektur", sans-serif;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.profile-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.profile-card {
+  background: rgba(13, 17, 23, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2),
+              0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.profile-info {
+  margin-bottom: 2rem;
+}
+
+.info-group {
+  margin-bottom: 1.5rem;
+}
+
+.info-group label {
+  display: block;
+  font-family: "Electrolize", sans-serif;
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-group p {
+  font-family: "Tektur", sans-serif;
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0.5rem;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 8px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(13, 17, 23, 0.6);
+}
+
+.stat-value {
+  display: block;
+  font-family: "Tektur", sans-serif;
+  font-size: 2rem;
+  color: #00d4ff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.stat-label {
+  display: block;
+  font-family: "Electrolize", sans-serif;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.logout-button {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, #ff6b6b, #ff5252);
+  border: none;
+  border-radius: 8px;
+  font-family: "Tektur", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4);
+}
+
+.logout-button .button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 107, 107, 0.5), rgba(255, 82, 82, 0.2));
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logout-button:hover .button-glow {
+  opacity: 1;
+}
+
+/* Reuse the animated background from Marketplace */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: floatAnimation 15s infinite linear;
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 1rem 0;
+  }
+
+  .profile-title {
+    font-size: 2rem;
+  }
+
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-title {
+    font-size: 1.75rem;
+  }
+
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .info-group p {
+    font-size: 1rem;
+  }
+
+  .logout-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+} 
