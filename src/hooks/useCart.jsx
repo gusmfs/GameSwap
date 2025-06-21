@@ -28,8 +28,7 @@ export const CartProvider = ({ children }) => {
       hasStatTrakItems: cart.some(item => item.stattrak),
       hasSouvenirItems: cart.some(item => item.souvenir),
       isOverBudget: totalValue > userBudget,
-      isEligibleForDiscount: cart.length >= 3 && totalValue >= 100,
-      canCheckout: cart.length > 0 && totalValue <= userBudget
+      isEligibleForDiscount: cart.length >= 3 && totalValue >= 100
     };
   }, [cart, user?.balance]);
 

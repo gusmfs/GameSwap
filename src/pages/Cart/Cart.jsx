@@ -17,8 +17,6 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    if (!cartState.canCheckout) return;
-    
     setIsCheckingOut(true);
     setTimeout(() => {
       alert('Compra realizada com sucesso!');
@@ -170,8 +168,8 @@ const Cart = () => {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <button
                       onClick={handleCheckout}
-                      disabled={!cartState.canCheckout || isCheckingOut}
-                      className={`cart-btn ${cartState.canCheckout && !isCheckingOut ? 'cart-btn-success' : 'cart-btn-disabled'}`}
+                      disabled={isCheckingOut}
+                      className={`cart-btn ${!isCheckingOut ? 'cart-btn-success' : 'cart-btn-disabled'}`}
                     >
                       {isCheckingOut ? 'Processando...' : 'Finalizar Compra'}
                     </button>

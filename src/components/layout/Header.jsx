@@ -53,15 +53,8 @@ const Header = () => {
       };
     }
     
-    if (cartState.canCheckout) {
-      return {
-        className: 'cart-icon ready',
-        title: 'Carrinho pronto para checkout'
-      };
-    }
-    
     return {
-      className: 'cart-icon',
+      className: 'cart-icon ready',
       title: 'Ver carrinho'
     };
   };
