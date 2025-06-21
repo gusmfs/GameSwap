@@ -12,6 +12,7 @@
 /* Adjust card size for register form */
 .auth-card {
   padding: 2rem;
+  max-width: 500px;
 }
 
 /* Adjust spacing for the longer form */
@@ -29,6 +30,143 @@
 .form-group:nth-child(2) { animation-delay: 0.2s; }
 .form-group:nth-child(3) { animation-delay: 0.3s; }
 .form-group:nth-child(4) { animation-delay: 0.4s; }
+.form-group:nth-child(5) { animation-delay: 0.5s; }
+.form-group:nth-child(6) { animation-delay: 0.6s; }
+.form-group:nth-child(7) { animation-delay: 0.7s; }
+
+/* Checkbox group styles */
+.checkbox-group {
+  margin-top: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #00d4ff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 4px;
+}
+
+.checkbox-label input[type="checkbox"]:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+.checkbox-label input[type="checkbox"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.checkbox-text {
+  color: #ccc;
+  font-family: "Electrolize", sans-serif;
+  flex: 1;
+}
+
+.terms-link {
+  color: #00d4ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.terms-link:hover {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+}
+
+/* Date input specific styles */
+.form-group input[type="date"] {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-family: "Electrolize", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.form-group input[type="date"]:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.form-group input[type="date"].valid {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.form-group input[type="date"].invalid {
+  border-color: #ff5252;
+  box-shadow: 0 0 5px rgba(255, 82, 82, 0.3);
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.form-group input[type="date"]::-webkit-datetime-edit {
+  color: #fff;
+}
+
+.form-group input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+  color: #fff;
+}
+
+/* Age validation styles */
+.age-validation {
+  font-family: "Electrolize", sans-serif;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.age-validation.valid {
+  color: #4caf50;
+}
+
+.age-validation.invalid {
+  color: #ff5252;
+}
+
+/* Required field indicator */
+.form-group label::after {
+  content: " *";
+  color: #ff5252;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .checkbox-label {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+  
+  .checkbox-text {
+    line-height: 1.3;
+  }
+}
 
 @keyframes slideIn {
   from {
