@@ -1,0 +1,168 @@
+/* Terms and Privacy Pages Styles */
+.terms-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.blur-circle {
+  position: absolute;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  filter: blur(4rem);
+  opacity: 0.2;
+  animation: float 6s ease-in-out infinite;
+}
+
+.blur-circle.circle1 {
+  background: #3b82f6;
+  top: 5rem;
+  left: 5rem;
+}
+
+.blur-circle.circle2 {
+  background: #8b5cf6;
+  top: 10rem;
+  right: 5rem;
+  animation-delay: 2s;
+}
+
+.blur-circle.circle3 {
+  background: #ec4899;
+  bottom: -2rem;
+  left: 10rem;
+  animation-delay: 4s;
+}
+
+.terms-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 64rem;
+}
+
+.terms-card {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.2);
+}
+
+.terms-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.terms-title {
+  font-family: "Tektur", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.terms-date {
+  font-family: "Electrolize", sans-serif;
+  color: #9ca3af;
+}
+
+.terms-content {
+  font-family: "Electrolize", sans-serif;
+  color: #d1d5db;
+  line-height: 1.75;
+}
+
+.terms-section {
+  margin-bottom: 1.5rem;
+}
+
+.terms-section h2 {
+  font-family: "Tektur", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.terms-section p {
+  margin-bottom: 1rem;
+}
+
+.terms-section ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}
+
+.terms-section li {
+  margin-bottom: 0.25rem;
+}
+
+.terms-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  font-family: "Tektur", sans-serif;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.terms-button:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.terms-button-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terms-page {
+    padding: 1rem;
+  }
+  
+  .terms-card {
+    padding: 1.5rem;
+  }
+  
+  .terms-title {
+    font-size: 2rem;
+  }
+  
+  .terms-section h2 {
+    font-size: 1.25rem;
+  }
+} 
