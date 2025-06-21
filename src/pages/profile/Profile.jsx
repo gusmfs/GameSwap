@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../providers/AuthProvider';
 import './Profile.css';
-import TwoFactorSetup from '../../components/auth/TwoFactorSetup';
-import twoFactorService from '../../services/twoFactorService';
 
 const Profile = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [show2FA, setShow2FA] = useState(false);
-  const [is2FAEnabled, setIs2FAEnabled] = useState(twoFactorService.is2FAEnabled());
 
   const handleLogout = () => {
     logout();
     navigate('/');
-  };
-
-  const handle2FASuccess = () => {
-    setIs2FAEnabled(true);
-    setShow2FA(false);
   };
 
   return (
@@ -64,23 +55,6 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className="mt-6 mb-4">
-              <div className="flex items-center gap-4">
-                <span>Autenticação de Dois Fatores:</span>
-                <span className={`px-2 py-1 rounded text-sm ${is2FAEnabled ? 'bg-green-600 text-white' : 'bg-red-600 text-white'}`}>
-                  {is2FAEnabled ? 'Ativado' : 'Desativado'}
-                </span>
-                {!is2FAEnabled && (
-                  <button
-                    className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
-                    onClick={() => setShow2FA(true)}
-                  >
-                    Ativar 2FA
-                  </button>
-                )}
-              </div>
-            </div>
-
             <button className="logout-button" onClick={handleLogout}>
               <span className="button-text">Sair</span>
               <div className="button-glow"></div>
@@ -88,9 +62,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {show2FA && (
-        <TwoFactorSetup onClose={() => setShow2FA(false)} onSuccess={handle2FASuccess} />
-      )}
     </div>
   );
 };
