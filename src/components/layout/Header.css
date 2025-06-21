@@ -118,4 +118,144 @@ header {
   .nav-menu li:last-child a {
     border-bottom: none;
   }
+}
+
+/* Estilos do Carrinho - Melhorados */
+.cart-nav-item {
+  position: relative;
+}
+
+.cart-nav-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cart-nav-item a:hover,
+.cart-nav-item a.active {
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.cart-nav-item a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: #00d4ff;
+}
+
+.cart-icon {
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.cart-nav-item a:hover .cart-icon,
+.cart-nav-item a.active .cart-icon {
+  color: #00d4ff;
+}
+
+.cart-icon.ready {
+  color: #10b981;
+  animation: pulse 2s infinite;
+}
+
+.cart-icon.warning {
+  color: #f59e0b;
+  animation: shake 0.5s ease-in-out;
+}
+
+.cart-icon.error {
+  color: #ef4444;
+  animation: shake 0.5s ease-in-out;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  border: 2px solid #1a1a1a;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  animation: bounce 1s ease-in-out;
+}
+
+/* Animações */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Responsividade para o carrinho */
+@media (max-width: 768px) {
+  .cart-nav-item {
+    margin-left: 10px;
+  }
+  
+  .cart-nav-item a {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+  }
+  
+  .cart-icon {
+    font-size: 20px;
+  }
+  
+  .cart-count {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
 } 

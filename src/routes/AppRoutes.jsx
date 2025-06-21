@@ -5,6 +5,7 @@ import PrivateRoute from './PrivateRoute';
 // Pages
 import Home from '../pages/home/Home';
 import Marketplace from '../pages/marketplace/Marketplace';
+import Cart from '../pages/Cart/Cart';
 import Inventory from '../pages/inventory/Inventory';
 import Profile from '../pages/profile/Profile';
 import Login from '../pages/login/Login';
@@ -19,6 +20,7 @@ const AppRoutes = () => {
       {/* Rotas Públicas */}
       <Route path="/" element={<Home />} />
       <Route path="/marketplace" element={<Marketplace />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/terms" element={<Terms />} />

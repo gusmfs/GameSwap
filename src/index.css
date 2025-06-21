@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Electrolize:wght@400&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -98,5 +102,232 @@ a {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
+/* Classes utilitárias para botões */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-all;
+}
+
+/* Animações para o carrinho */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Classes específicas para o carrinho */
+.cart-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f2937 0%, #1e3a8a 50%, #7c3aed 100%);
+  padding: 2rem 1rem;
+  color: white;
+}
+
+.cart-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cart-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cart-badge {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.cart-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-item-image {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.cart-item-rarity {
+  font-size: 0.875rem;
+  color: #60a5fa;
+  margin: 0 0 0.25rem 0;
+}
+
+.cart-item-details {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin: 0;
+}
+
+.cart-item-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+.cart-remove-btn {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.cart-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.cart-btn-primary:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.cart-btn-success {
+  background-color: #10b981;
+  color: white;
+}
+
+.cart-btn-success:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.cart-btn-danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cart-btn-disabled {
+  background-color: #6b7280;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.cart-btn-disabled:hover {
+  background-color: #6b7280;
+  transform: none;
+  box-shadow: none;
+}
+
+.cart-summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  color: #d1d5db;
+}
+
+.cart-summary-total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #4b5563;
+  padding-top: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.cart-user-balance {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(59, 130, 246, 0.2);
+  border-radius: 0.5rem;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 2rem;
+}
+
+html,
+body {
+  /* ... etc ... */
+}
 
  

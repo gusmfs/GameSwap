@@ -225,6 +225,73 @@
   transform: translateY(-2px);
 }
 
+/* Estados dos botões */
+.buy-button.disabled {
+  background: #6b7280;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.buy-button.disabled:hover {
+  background: #6b7280;
+  transform: none;
+}
+
+.buy-button.loading {
+  background: #3b82f6;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.buy-button.loading:hover {
+  background: #3b82f6;
+  transform: none;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mensagem de erro */
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+/* Melhorias no botão de compra */
+.buy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.buy-button svg {
+  font-size: 14px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .skin-card {

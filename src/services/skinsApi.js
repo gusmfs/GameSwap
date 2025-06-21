@@ -1,8 +1,21 @@
 const API_BASE_URL = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en';
 
-// Função para buscar todas as skins
+// Cache para armazenar dados já carregados
+let skinsCache = null;
+let lastFetchTime = 0;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutos
+
+// Função para buscar todas as skins com cache
 export const fetchSkins = async () => {
   try {
+    // Verifica se há cache válido
+    const now = Date.now();
+    if (skinsCache && (now - lastFetchTime) < CACHE_DURATION) {
+      console.log('Usando cache para skins');
+      return skinsCache;
+    }
+
+    console.log('Carregando skins da API...');
     const response = await fetch(`${API_BASE_URL}/skins_not_grouped.json`);
     if (!response.ok) {
       throw new Error('Erro ao buscar skins');
@@ -10,11 +23,17 @@ export const fetchSkins = async () => {
     const data = await response.json();
     
     // Adicionar preços fictícios para fins acadêmicos
-    return data.map(skin => ({
+    const skinsWithPrices = data.map(skin => ({
       ...skin,
       price: generateRandomPrice(skin.rarity?.name || 'Industrial Grade'),
       market_price: generateRandomPrice(skin.rarity?.name || 'Industrial Grade') * 0.85
     }));
+
+    // Atualiza cache
+    skinsCache = skinsWithPrices;
+    lastFetchTime = now;
+    
+    return skinsWithPrices;
   } catch (error) {
     console.error('Erro ao buscar skins:', error);
     throw error;

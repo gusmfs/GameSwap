@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../providers/AuthProvider';
+import { useCart } from '../../hooks/useCart.jsx';
 import AuthModal from '../auth/AuthModal';
+import { FaShoppingCart } from 'react-icons/fa';
 import logoImage from '../../assets/Images/LOGOTIPO(POSITIVO).png';
 import './Header.css';
 
@@ -11,6 +13,7 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+  const { cart, cartState } = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,6 +31,42 @@ const Header = () => {
       navigate(path);
     }
   };
+
+  // Lógica binária para determinar se mostrar o carrinho
+  const shouldShowCart = () => {
+    return !cartState.isEmpty && isAuthenticated;
+  };
+
+  // Lógica de decisão para o estado do carrinho
+  const getCartState = () => {
+    if (cartState.isOverBudget) {
+      return {
+        className: 'cart-icon warning',
+        title: 'Saldo insuficiente no carrinho'
+      };
+    }
+    
+    if (cartState.hasInvalidItems) {
+      return {
+        className: 'cart-icon error',
+        title: 'Itens inválidos no carrinho'
+      };
+    }
+    
+    if (cartState.canCheckout) {
+      return {
+        className: 'cart-icon ready',
+        title: 'Carrinho pronto para checkout'
+      };
+    }
+    
+    return {
+      className: 'cart-icon',
+      title: 'Ver carrinho'
+    };
+  };
+
+  const cartStateInfo = getCartState();
 
   return (
     <>
@@ -67,6 +106,21 @@ const Header = () => {
                 Perfil
               </a>
             </li>
+            {/* Ícone do Carrinho - Melhorado */}
+            {shouldShowCart() && (
+              <li className="cart-nav-item">
+                <Link 
+                  to="/cart" 
+                  className={isActive('/cart')} 
+                  title={cartStateInfo.title}
+                >
+                  <FaShoppingCart className={cartStateInfo.className} />
+                  {cart.length > 0 && (
+                    <span className="cart-count">{cart.length}</span>
+                  )}
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
