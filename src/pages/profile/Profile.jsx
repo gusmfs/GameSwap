@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaUser, FaEdit } from 'react-icons/fa';
 import { useAuth } from '../../providers/AuthProvider';
+import AgentSelector from '../../components/profile/AgentSelector';
 import './Profile.css';
 
 const Profile = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [showAgentSelector, setShowAgentSelector] = useState(false);
+  const [selectedAgent, setSelectedAgent] = useState(null);
 
   const handleLogout = () => {
     logout();
     navigate('/');
+  };
+
+  const handleAgentSelect = (agent) => {
+    setSelectedAgent(agent);
+    // Aqui você pode salvar o agente selecionado no perfil do usuário
+    console.log('Agente selecionado:', agent);
   };
 
   return (
@@ -27,6 +37,29 @@ const Profile = () => {
 
         <div className="profile-content">
           <div className="profile-card">
+            {/* Seção de Avatar */}
+            <div className="profile-avatar-section">
+              <h3>Avatar do Perfil</h3>
+              <div className="avatar-container">
+                <div className="current-avatar">
+                  {selectedAgent ? (
+                    <img src={selectedAgent.image} alt={selectedAgent.name} />
+                  ) : (
+                    <div className="default-avatar">
+                      <FaUser />
+                    </div>
+                  )}
+                </div>
+                <button 
+                  className="select-agent-btn"
+                  onClick={() => setShowAgentSelector(true)}
+                >
+                  <FaEdit />
+                  Selecionar Agente CS2
+                </button>
+              </div>
+            </div>
+
             <div className="profile-info">
               <div className="info-group">
                 <label>Nome</label>
@@ -62,6 +95,15 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal de Seleção de Agentes */}
+      {showAgentSelector && (
+        <AgentSelector
+          onAgentSelect={handleAgentSelect}
+          selectedAgent={selectedAgent}
+          onClose={() => setShowAgentSelector(false)}
+        />
+      )}
     </div>
   );
 };
