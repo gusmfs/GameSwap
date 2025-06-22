@@ -5,6 +5,10 @@ let skinsCache = null;
 let lastFetchTime = 0;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutos
 
+// Cache para agentes
+let agentsCache = null;
+let lastAgentsFetchTime = 0;
+
 // Função para buscar todas as skins com cache
 export const fetchSkins = async () => {
   try {
@@ -236,6 +240,141 @@ export const fetchWears = async () => {
     return wears.sort();
   } catch (error) {
     console.error('Erro ao buscar desgastes:', error);
+    throw error;
+  }
+};
+
+// Função para buscar todos os agentes CS2
+export const fetchAgents = async () => {
+  try {
+    // Verifica se há cache válido
+    const now = Date.now();
+    if (agentsCache && (now - lastAgentsFetchTime) < CACHE_DURATION) {
+      console.log('Usando cache para agentes');
+      return agentsCache;
+    }
+
+    console.log('Carregando agentes da API...');
+    const response = await fetch(`${API_BASE_URL}/agents.json`);
+    if (!response.ok) {
+      throw new Error('Erro ao buscar agentes');
+    }
+    const data = await response.json();
+    
+    // Processar e formatar os dados dos agentes
+    const processedAgents = data.map(agent => ({
+      id: agent.id || agent.name?.toLowerCase().replace(/\s+/g, '-'),
+      name: agent.name,
+      faction: agent.faction || 'Unknown',
+      rarity: agent.rarity || { name: 'Common' },
+      image: agent.image || `https://via.placeholder.com/150x150/4a90e2/ffffff?text=${agent.name}`,
+      description: agent.description || `Agente ${agent.name}`,
+      collection: agent.collection || 'Default',
+      price: generateRandomAgentPrice(agent.rarity?.name || 'Common')
+    }));
+
+    // Atualiza cache
+    agentsCache = processedAgents;
+    lastAgentsFetchTime = now;
+    
+    return processedAgents;
+  } catch (error) {
+    console.error('Erro ao buscar agentes:', error);
+    throw error;
+  }
+};
+
+// Função para buscar agentes por filtros
+export const fetchAgentsByFilter = async (filters = {}) => {
+  try {
+    const agents = await fetchAgents();
+    let filteredAgents = agents;
+
+    // Filtrar por nome
+    if (filters.search) {
+      filteredAgents = filteredAgents.filter(agent => 
+        agent.name.toLowerCase().includes(filters.search.toLowerCase())
+      );
+    }
+
+    // Filtrar por facção (Terrorist/Counter-Terrorist)
+    if (filters.faction) {
+      filteredAgents = filteredAgents.filter(agent => 
+        agent.faction === filters.faction
+      );
+    }
+
+    // Filtrar por raridade
+    if (filters.rarity) {
+      filteredAgents = filteredAgents.filter(agent => 
+        agent.rarity?.name === filters.rarity
+      );
+    }
+
+    // Ordenar
+    if (filters.sortBy) {
+      switch (filters.sortBy) {
+        case 'name_asc':
+          filteredAgents.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case 'name_desc':
+          filteredAgents.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+        case 'price_asc':
+          filteredAgents.sort((a, b) => a.price - b.price);
+          break;
+        case 'price_desc':
+          filteredAgents.sort((a, b) => b.price - a.price);
+          break;
+        default:
+          break;
+      }
+    }
+
+    return filteredAgents;
+  } catch (error) {
+    console.error('Erro ao buscar agentes filtrados:', error);
+    throw error;
+  }
+};
+
+// Função para gerar preços aleatórios para agentes
+const generateRandomAgentPrice = (rarity) => {
+  const rarityPrices = {
+    'Common': { min: 5.0, max: 25.0 },
+    'Uncommon': { min: 15.0, max: 50.0 },
+    'Rare': { min: 30.0, max: 100.0 },
+    'Mythical': { min: 80.0, max: 300.0 },
+    'Legendary': { min: 200.0, max: 800.0 },
+    'Ancient': { min: 500.0, max: 2000.0 }
+  };
+
+  const priceRange = rarityPrices[rarity] || rarityPrices['Common'];
+  const price = Math.random() * (priceRange.max - priceRange.min) + priceRange.min;
+  
+  return parseFloat(price.toFixed(2));
+};
+
+// Função para buscar facções disponíveis
+export const fetchFactions = async () => {
+  try {
+    const agents = await fetchAgents();
+    const factions = [...new Set(agents.map(agent => agent.faction).filter(Boolean))];
+    return factions.sort();
+  } catch (error) {
+    console.error('Erro ao buscar facções:', error);
+    throw error;
+  }
+};
+
+// Função para buscar raridades de agentes disponíveis
+export const fetchAgentRarities = async () => {
+  try {
+    const agents = await fetchAgents();
+    const rarities = [...new Set(agents.map(agent => agent.rarity?.name).filter(Boolean))];
+    return rarities.sort();
+  } catch (error) {
+    console.error('Erro ao buscar raridades de agentes:', error);
     throw error;
   }
 }; 
