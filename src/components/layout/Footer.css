@@ -75,6 +75,108 @@
   transform: scale(1.1);
 }
 
+/* Redes Sociais */
+.social-media-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-media-title {
+  color: #00d4ff;
+  font-family: "Tektur", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.social-media-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  border-color: currentColor;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Cores específicas para cada rede social */
+.social-link.facebook {
+  color: #1877f2;
+}
+
+.social-link.facebook:hover {
+  background: rgba(24, 119, 242, 0.2);
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3);
+}
+
+.social-link.twitter {
+  color: #1da1f2;
+}
+
+.social-link.twitter:hover {
+  background: rgba(29, 161, 242, 0.2);
+  box-shadow: 0 10px 25px rgba(29, 161, 242, 0.3);
+}
+
+.social-link.instagram {
+  color: #e4405f;
+}
+
+.social-link.instagram:hover {
+  background: rgba(228, 64, 95, 0.2);
+  box-shadow: 0 10px 25px rgba(228, 64, 95, 0.3);
+}
+
+.social-link.youtube {
+  color: #ff0000;
+}
+
+.social-link.youtube:hover {
+  background: rgba(255, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+}
+
+.social-link.discord {
+  color: #7289da;
+}
+
+.social-link.discord:hover {
+  background: rgba(114, 137, 218, 0.2);
+  box-shadow: 0 10px 25px rgba(114, 137, 218, 0.3);
+}
+
+.social-link.github {
+  color: #333;
+}
+
+.social-link.github:hover {
+  background: rgba(51, 51, 51, 0.2);
+  box-shadow: 0 10px 25px rgba(51, 51, 51, 0.3);
+}
+
 /* Informações de Segurança */
 .security-info {
   display: flex;
@@ -152,6 +254,16 @@
     font-size: 0.85rem;
   }
 
+  .social-media-links {
+    gap: 1rem;
+  }
+
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
   .security-details {
     flex-direction: column;
     gap: 0.75rem;
@@ -183,5 +295,15 @@
 
   .footer-links a {
     font-size: 0.8rem;
+  }
+
+  .social-media-links {
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 } 

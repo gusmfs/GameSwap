@@ -13,8 +13,14 @@ import {
   FaShieldAlt as FaPrivacy,
   FaEnvelope,
   FaPhone,
-  FaQuestionCircle
+  FaQuestionCircle,
+  FaFacebook,
+  FaTwitter,
+  FaYoutube,
+  FaDiscord,
+  FaGithub
 } from 'react-icons/fa';
+import { AiFillInstagram } from 'react-icons/ai';
 import './Footer.css';
 
 const Footer = () => {
@@ -57,6 +63,31 @@ const Footer = () => {
               <li><a href="tel:+5511999999999"><FaPhone /> Telefone</a></li>
               <li><a href="#faq"><FaQuestionCircle /> FAQ</a></li>
             </ul>
+          </div>
+        </div>
+
+        {/* Redes Sociais */}
+        <div className="social-media-section">
+          <h3 className="social-media-title">Siga-nos</h3>
+          <div className="social-media-links">
+            <a href="https://facebook.com/gameswap" target="_blank" rel="noopener noreferrer" className="social-link facebook">
+              <FaFacebook />
+            </a>
+            <a href="https://twitter.com/gameswap" target="_blank" rel="noopener noreferrer" className="social-link twitter">
+              <FaTwitter />
+            </a>
+            <a href="https://instagram.com/gameswap" target="_blank" rel="noopener noreferrer" className="social-link instagram">
+              <AiFillInstagram />
+            </a>
+            <a href="https://youtube.com/gameswap" target="_blank" rel="noopener noreferrer" className="social-link youtube">
+              <FaYoutube />
+            </a>
+            <a href="https://discord.gg/gameswap" target="_blank" rel="noopener noreferrer" className="social-link discord">
+              <FaDiscord />
+            </a>
+            <a href="https://github.com/gusmfs/GameSwap" target="_blank" rel="noopener noreferrer" className="social-link github">
+              <FaGithub />
+            </a>
           </div>
         </div>
 
