@@ -12,6 +12,7 @@ import Login from '../pages/login/Login';
 import Register from '../pages/register/Register';
 import Terms from '../pages/terms/Terms';
 import Privacy from '../pages/terms/Privacy';
+import SocialProfile from '../pages/social/SocialProfile';
 
 // Definição de todas as rotas da aplicação
 const AppRoutes = () => {
@@ -21,6 +22,8 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/marketplace" element={<Marketplace />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/u/:slug" element={<SocialProfile />} />
+      <Route path="/u/id/:userId" element={<SocialProfile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/terms" element={<Terms />} />

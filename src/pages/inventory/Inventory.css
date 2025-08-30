@@ -244,7 +244,7 @@
   padding: 1rem;
 }
 
-.modal-content {
+.inventory-modal-content {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   border-radius: 12px;
   padding: 2rem;
@@ -256,7 +256,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.modal-content h2 {
+.inventory-modal-content h2 {
   color: #fff;
   font-size: 1.5rem;
   font-family: "Tektur", sans-serif;
@@ -392,7 +392,7 @@
     text-align: center;
   }
 
-  .modal-content {
+  .inventory-modal-content {
     padding: 1.5rem;
   }
 
