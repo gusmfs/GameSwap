@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
+import AdminRoute from './AdminRoute';
 
 // Pages
 import Home from '../pages/home/Home';
@@ -13,6 +14,7 @@ import Register from '../pages/register/Register';
 import Terms from '../pages/terms/Terms';
 import Privacy from '../pages/terms/Privacy';
 import SocialProfile from '../pages/social/SocialProfile';
+import AdminDashboard from '../pages/admin/AdminDashboard';
 
 // Definição de todas as rotas da aplicação
 const AppRoutes = () => {
@@ -44,6 +46,14 @@ const AppRoutes = () => {
           <PrivateRoute>
             <Profile />
           </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin"
+        element={
+          <AdminRoute>
+            <AdminDashboard />
+          </AdminRoute>
         }
       />
 
