@@ -1,6 +1,6 @@
 import React, { useState, memo } from 'react';
 
-const LineChart = memo(({ data, valueKey, title, legend, color = '#3b82f6', valueFormat, axisValueFormat, footerLabel, chartWidth = 640, chartHeight = 260, chartPadding = 36 }) => {
+const LineChart = memo(({ data, valueKey, title, color = '#3b82f6', valueFormat, axisValueFormat, footerLabel, chartWidth = 640, chartHeight = 260, chartPadding = 36 }) => {
   const [hover, setHover] = useState(null);
 
   const months = data.map(d => d.month);
@@ -89,7 +89,7 @@ const LineChart = memo(({ data, valueKey, title, legend, color = '#3b82f6', valu
   return (
     <div className="chart-container line-chart-container">
       <h4 className="chart-title">{title}</h4>
-      <div className="line-chart-legend" style={{ color }}>{legend}</div>
+      {/* Legenda removida para evitar redundância */}
       <svg
         width="100%"
         viewBox={`0 0 ${width} ${height}`}

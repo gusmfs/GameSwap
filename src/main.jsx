@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import 'remixicon/fonts/remixicon.css';
 
 // VLibras temporarily disabled to avoid DOM errors
 // TODO: Re-enable with proper error handling when needed
