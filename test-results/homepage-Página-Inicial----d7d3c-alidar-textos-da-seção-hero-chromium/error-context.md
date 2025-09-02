@@ -1,0 +1,155 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - navigation [ref=e6]:
+      - link "GameSwap Logo" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "GameSwap Logo" [ref=e9] [cursor=pointer]
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - link "Home" [ref=e12] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e13]:
+          - link "Marketplace" [ref=e14] [cursor=pointer]:
+            - /url: /marketplace
+        - listitem [ref=e15]:
+          - link "Meu Inventário" [ref=e16] [cursor=pointer]:
+            - /url: /inventory
+        - listitem [ref=e17]:
+          - link "Perfil" [ref=e18] [cursor=pointer]:
+            - /url: /profile
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "GameSwap" [level=1] [ref=e22]
+        - paragraph [ref=e23]: A maior plataforma de troca e venda de skins de Counter-Strike 2 do Brasil com tecnologia de ponta e segurança garantida para suas transações.
+      - link "Explorar Marketplace" [ref=e25] [cursor=pointer]:
+        - /url: /marketplace
+        - img [ref=e26] [cursor=pointer]
+        - text: Explorar Marketplace
+      - generic [ref=e28]:
+        - heading "Por que escolher a GameSwap?" [level=2] [ref=e29]
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img [ref=e33]
+            - heading "Segurança Garantida" [level=3] [ref=e35]
+            - paragraph [ref=e36]: Todas as transações são protegidas por criptografia avançada e sistema anti-fraude para garantir a segurança dos seus itens e pagamentos.
+          - generic [ref=e37]:
+            - img [ref=e39]
+            - heading "Transações Rápidas" [level=3] [ref=e41]
+            - paragraph [ref=e42]: Nossa plataforma permite trocas e vendas instantâneas, com entrega garantida e sistema de verificação em tempo real.
+          - generic [ref=e43]:
+            - img [ref=e45]
+            - heading "Melhores Preços" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Compare preços entre milhares de vendedores verificados e garanta o melhor negócio para suas skins com taxas reduzidas.
+  - contentinfo [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - heading "Navegação" [level=3] [ref=e53]
+          - list [ref=e54]:
+            - listitem [ref=e55]:
+              - link "Início" [ref=e56] [cursor=pointer]:
+                - /url: /
+                - img [ref=e57] [cursor=pointer]
+                - text: Início
+            - listitem [ref=e59]:
+              - link "Marketplace" [ref=e60] [cursor=pointer]:
+                - /url: /marketplace
+                - img [ref=e61] [cursor=pointer]
+                - text: Marketplace
+            - listitem [ref=e63]:
+              - link "Carrinho" [ref=e64] [cursor=pointer]:
+                - /url: /cart
+                - img [ref=e65] [cursor=pointer]
+                - text: Carrinho
+            - listitem [ref=e67]:
+              - link "Inventário" [ref=e68] [cursor=pointer]:
+                - /url: /inventory
+                - img [ref=e69] [cursor=pointer]
+                - text: Inventário
+        - generic [ref=e71]:
+          - heading "Conta" [level=3] [ref=e72]
+          - list [ref=e73]:
+            - listitem [ref=e74]:
+              - link "Login" [ref=e75] [cursor=pointer]:
+                - /url: /login
+                - img [ref=e76] [cursor=pointer]
+                - text: Login
+            - listitem [ref=e78]:
+              - link "Cadastro" [ref=e79] [cursor=pointer]:
+                - /url: /register
+                - img [ref=e80] [cursor=pointer]
+                - text: Cadastro
+            - listitem [ref=e82]:
+              - link "Perfil" [ref=e83] [cursor=pointer]:
+                - /url: /profile
+                - img [ref=e84] [cursor=pointer]
+                - text: Perfil
+        - generic [ref=e86]:
+          - heading "Legal" [level=3] [ref=e87]
+          - list [ref=e88]:
+            - listitem [ref=e89]:
+              - link "Termos de Uso" [ref=e90] [cursor=pointer]:
+                - /url: /terms
+                - img [ref=e91] [cursor=pointer]
+                - text: Termos de Uso
+            - listitem [ref=e93]:
+              - link "Política de Privacidade" [ref=e94] [cursor=pointer]:
+                - /url: /privacy
+                - img [ref=e95] [cursor=pointer]
+                - text: Política de Privacidade
+        - generic [ref=e97]:
+          - heading "Suporte" [level=3] [ref=e98]
+          - list [ref=e99]:
+            - listitem [ref=e100]:
+              - link "Email" [ref=e101] [cursor=pointer]:
+                - /url: mailto:suporte@gameswap.com
+                - img [ref=e102] [cursor=pointer]
+                - text: Email
+            - listitem [ref=e104]:
+              - link "Telefone" [ref=e105] [cursor=pointer]:
+                - /url: tel:+5511999999999
+                - img [ref=e106] [cursor=pointer]
+                - text: Telefone
+            - listitem [ref=e108]:
+              - link "FAQ" [ref=e109] [cursor=pointer]:
+                - /url: "#faq"
+                - img [ref=e110] [cursor=pointer]
+                - text: FAQ
+      - generic [ref=e112]:
+        - heading "Siga-nos" [level=3] [ref=e113]
+        - generic [ref=e114]:
+          - link [ref=e115] [cursor=pointer]:
+            - /url: https://facebook.com/gameswap
+            - img [ref=e116] [cursor=pointer]
+          - link [ref=e118] [cursor=pointer]:
+            - /url: https://twitter.com/gameswap
+            - img [ref=e119] [cursor=pointer]
+          - link [ref=e121] [cursor=pointer]:
+            - /url: https://instagram.com/gameswap
+            - img [ref=e122] [cursor=pointer]
+          - link [ref=e124] [cursor=pointer]:
+            - /url: https://youtube.com/gameswap
+            - img [ref=e125] [cursor=pointer]
+          - link [ref=e127] [cursor=pointer]:
+            - /url: https://discord.gg/gameswap
+            - img [ref=e128] [cursor=pointer]
+          - link [ref=e130] [cursor=pointer]:
+            - /url: https://github.com/gusmfs/GameSwap
+            - img [ref=e131] [cursor=pointer]
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - img [ref=e135]
+          - generic [ref=e137]: SSL Seguro
+        - generic [ref=e138]:
+          - paragraph [ref=e139]:
+            - img [ref=e140]
+            - text: Transações Criptografadas
+          - paragraph [ref=e142]:
+            - img [ref=e143]
+            - text: Verificação em Duas Etapas
+      - paragraph [ref=e145]: © 2025 GameSwap - Desenvolvido por Gustavo Medeiros, Michael Marotto, Davi Grabalos, Lívia Scoralick
+```

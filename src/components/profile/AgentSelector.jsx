@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect } from 'react';
 import { FaSpinner, FaSearch, FaFilter, FaTimes } from 'react-icons/fa';
 import { fetchAgentsByFilter, fetchFactions, fetchAgentRarities } from '../../services/skinsApi';
 import './AgentSelector.css';
