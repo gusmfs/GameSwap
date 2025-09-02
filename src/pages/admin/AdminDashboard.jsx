@@ -355,7 +355,7 @@ const AdminDashboard = () => {
             <ul className="admin-nav-list">
               <li className="admin-nav-item">
                 <button className="admin-nav-link active">
-                  <span className="nav-icon">📊</span>
+                  <span className="nav-icon"><i className="ri-bar-chart-box-ai-line"></i></span>
                   <span className="nav-label">Projeções</span>
                 </button>
               </li>
@@ -401,7 +401,6 @@ const AdminDashboard = () => {
                 data={userSeries}
                 valueKey="users"
                 title="Crescimento de Usuários"
-                legend="Projeção de Usuários"
                 color="#3b82f6"
                 valueFormat={(v) => v.toLocaleString()}
                 axisValueFormat={(v) => v.toLocaleString()}
@@ -414,7 +413,6 @@ const AdminDashboard = () => {
                 data={revenueSeries}
                 valueKey="revenue"
                 title="Receita Projetada"
-                legend="Projeção de Receita"
                 color="#10b981"
                 valueFormat={(v) => `R$ ${v.toLocaleString()}`}
                 axisValueFormat={(v) => `R$ ${v.toLocaleString()}`}
@@ -427,7 +425,6 @@ const AdminDashboard = () => {
                 data={depreciationSeries}
                 valueKey="value"
                 title="Depreciação de Recursos"
-                legend="Projeção de Depreciação"
                 color="#f59e0b"
                 valueFormat={(v) => `R$ ${v.toLocaleString()}`}
                 axisValueFormat={(v) => `R$ ${v.toLocaleString()}`}

@@ -71,7 +71,7 @@
 .admin-header {
   background: white;
   border-bottom: 1px solid #e2e8f0;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #1e293b;
 }
@@ -131,7 +131,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #3b82f6;
+  background: #00d4ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,10 +156,6 @@
   font-size: 0.75rem;
   color: #64748b !important;
 }
-
-/* ========================================
-   4. SIDEBAR
-   ======================================== */
 
 .admin-sidebar {
   width: 280px;
@@ -198,25 +194,27 @@
   padding: 1rem 1.5rem;
   background: transparent;
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
   color: #64748b !important;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
-  font-size: 0.875rem;
+  font-size: 1rem;
   position: relative;
 }
 
 .admin-nav-link:hover {
-  background: #f8fafc;
-  color: #3b82f6 !important;
+  background: #f1f5f9;
+  color: #1e293b !important;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .admin-nav-link.active {
-  background: #eff6ff;
-  color: #3b82f6 !important;
-  border-right: 3px solid #3b82f6;
+  background: #f8f9fa;
+  color: #1a1a1a !important;
+  border-right: 3px solid #4a4a4a;
   font-weight: 600;
 }
 
@@ -227,7 +225,7 @@
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #3b82f6;
+  background: #4a4a4a;
 }
 
 .nav-icon {
