@@ -171,7 +171,6 @@ const AdminDashboard = () => {
     return null;
   }, []);
   const [selectedModal, setSelectedModal] = useState(null);
-  const [lineHover, setLineHover] = useState(null);
 
   // Séries baseadas nas projeções matemáticas (fonte única de dados)
   const userSeries = useMemo(() => {
