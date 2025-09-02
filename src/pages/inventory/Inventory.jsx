@@ -240,7 +240,7 @@ const Inventory = () => {
       {/* Modal de Adicionar/Editar Item */}
       {isAddModalOpen && (
         <div className="modal-overlay">
-          <div className="modal-content">
+          <div className="inventory-modal-content">
             <h2>{editingItem ? 'Editar Item' : 'Adicionar Novo Item'}</h2>
             <form onSubmit={editingItem ? handleUpdateItem : handleAddItem}>
               <div className="form-group">

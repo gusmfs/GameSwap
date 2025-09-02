@@ -4,6 +4,7 @@ import AuthProvider from './providers/AuthProvider';
 import { CartProvider } from './hooks/useCart.jsx';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import ScrollToTopButton from './components/layout/ScrollToTopButton';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
@@ -18,6 +19,7 @@ function App() {
             
             <Header />
             <AppRoutes />
+            <ScrollToTopButton />
             <Footer />
           </div>
         </CartProvider>
