@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUser, FaEdit, FaCommentDots } from 'react-icons/fa';
+import { FaUser, FaEdit } from 'react-icons/fa';
 import { useAuth } from '../../providers/AuthProvider';
 import AgentSelector from '../../components/profile/AgentSelector';
 import ProfileTabs from '../../components/profile/ProfileTabs';
 import ProfileDashboard from '../../components/profile/ProfileDashboard';
 import ProfileDashboardModal from '../../components/profile/ProfileDashboardModal';
 import ProfileBio from '../../components/profile/ProfileBio';
-import FeedbackForm from '../../components/feedback/FeedbackForm';
 import userProfileService from '../../services/userProfileService';
 import { 
   recordProfileVisit, 
@@ -24,7 +23,6 @@ const Profile = () => {
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [trackingEnabled, setTrackingEnabled] = useState(true);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState('');
 
   // Carrega preferência de rastreamento
@@ -89,16 +87,6 @@ const Profile = () => {
     if (!enabled && user?.id) {
       clearUserMetrics(user.id);
     }
-  };
-
-  const handleFeedbackSubmit = (feedbackData) => {
-    console.log('Feedback enviado:', feedbackData);
-    // Aqui você pode implementar a lógica para salvar o feedback
-    // Por exemplo, enviar para uma API ou salvar no localStorage
-  };
-
-  const handleOpenFeedbackPage = () => {
-    navigate('/feedback');
   };
 
   return (
@@ -208,27 +196,6 @@ const Profile = () => {
               </div>
             </section>
 
-            {/* Feedback Section */}
-            <section className="profile-section" aria-labelledby="feedback-title">
-              <h3 id="feedback-title">Feedback</h3>
-              <p className="muted">Ajude-nos a melhorar o GameSwap com suas sugestões e reportes.</p>
-              <div className="feedback-buttons">
-                <button 
-                  className="feedback-btn"
-                  onClick={() => setIsFeedbackOpen(true)}
-                >
-                  <FaCommentDots />
-                  Enviar Feedback
-                </button>
-                <button 
-                  className="feedback-btn feedback-btn-secondary"
-                  onClick={handleOpenFeedbackPage}
-                >
-                  Página de Feedback
-                </button>
-              </div>
-            </section>
-
             <div className="profile-stats">
               <div className="stat-item">
                 <span className="stat-value">{user?.transactions?.length || 0}</span>
@@ -261,15 +228,8 @@ const Profile = () => {
         onClose={() => setIsDashboardOpen(false)}
         userId={user?.id}
       />
-      
-      {/* Modal de Feedback */}
-      <FeedbackForm
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
-        onSubmit={handleFeedbackSubmit}
-      />
     </div>
   );
 };
 
-export default Profile;
+export default Profile; 
