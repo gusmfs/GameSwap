@@ -1,0 +1,163 @@
+/* Feedback Page Styles */
+.feedback-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.feedback-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-family: "Tektur", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-button:hover {
+  background: rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+
+.feedback-title {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-family: "Tektur", sans-serif;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.feedback-subtitle {
+  font-family: "Electrolize", sans-serif;
+  color: #ccc;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.feedback-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.feedback-info {
+  background: rgba(13, 17, 23, 0.95);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2),
+              0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.feedback-info h2 {
+  font-family: "Tektur", sans-serif;
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.feedback-info p {
+  font-family: "Electrolize", sans-serif;
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.feedback-tips {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.feedback-tips h3 {
+  font-family: "Tektur", sans-serif;
+  color: #00d4ff;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.feedback-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feedback-tips li {
+  font-family: "Electrolize", sans-serif;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.feedback-tips li::before {
+  content: '•';
+  color: #00d4ff;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.feedback-form-container {
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feedback-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .feedback-title {
+    font-size: 2.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .back-button {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .feedback-info {
+    padding: 1.5rem;
+  }
+}
