@@ -4,6 +4,7 @@ import { useAuth } from '../../providers/AuthProvider';
 import { useCart } from '../../hooks/useCart.jsx';
 import AuthModal from '../auth/AuthModal';
 import { FaShoppingCart } from 'react-icons/fa';
+import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import logoImage from '../../assets/Images/LOGOTIPO(POSITIVO).png';
 import './Header.css';
 
@@ -76,7 +77,7 @@ const Header = () => {
             aria-label="Menu" 
             aria-expanded={isMenuOpen}
           >
-            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            {isMenuOpen ? <RiCloseLine /> : <RiMenuLine />}
           </button>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
             <li><Link to="/" className={isActive('/')}>Home</Link></li>
@@ -126,4 +127,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;
