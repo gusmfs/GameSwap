@@ -82,9 +82,6 @@ npm run test:e2e:ui
 
 ## 🔐 Credenciais de Teste
 
-### **Administradores**
-- **Email**: `admin@gameswap.com` | **Senha**: `admin123`
-- **Email**: `admin@teste.com` | **Senha**: `admin123`
 
 ### **Usuário Comum**
 - **Email**: `user@teste.com` | **Senha**: `user123`
