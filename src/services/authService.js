@@ -1,50 +1,106 @@
 // Simulação de uma API de autenticação
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+// ⚠️ ATENÇÃO: Esta é uma implementação de DEMONSTRAÇÃO
+// Em produção, você DEVE:
+// 1. Validar credenciais no backend
+// 2. Usar JWT tokens assinados
+// 3. Validar roles no servidor
+// 4. Implementar rate limiting
+// 5. Usar HTTPS
+
+// Base de dados simulada de usuários (em produção, seria no backend)
+const mockUsers = [
+  {
+    id: '1',
+    email: 'admin@gameswap.com',
+    password: 'admin123', // ⚠️ Em produção, senhas devem ser hasheadas
+    name: 'Administrador',
+    role: 'admin'
+  },
+  {
+    id: '2', 
+    email: 'admin@teste.com',
+    password: 'admin123',
+    name: 'Admin Teste',
+    role: 'admin'
+  },
+  {
+    id: '3',
+    email: 'user@teste.com', 
+    password: 'user123',
+    name: 'Usuário Teste',
+    role: 'user'
+  }
+];
+
 const authService = {
   login: async (email, password) => {
     // Simular uma chamada de API
     await delay(1000);
     
-    // Aqui você substituiria por uma chamada real à sua API
-    if (email && password) {
-      // Simulando um usuário retornado pela API
-      const user = {
-        id: '1',
-        name: 'Usuário Teste',
-        email: email,
-        createdAt: new Date().toISOString(),
-        inventory: [],
-        transactions: []
-      };
-      
-      return user;
+    // ⚠️ VULNERABILIDADE: Em produção, valide no backend
+    if (!email || !password) {
+      throw new Error('Email e senha são obrigatórios');
     }
     
-    throw new Error('Credenciais inválidas');
+    // Buscar usuário na base simulada
+    const user = mockUsers.find(u => 
+      u.email.toLowerCase() === email.toLowerCase() && 
+      u.password === password
+    );
+    
+    if (!user) {
+      throw new Error('Email ou senha incorretos');
+    }
+    
+    // Retornar dados do usuário (sem a senha)
+    const { password: _, ...userWithoutPassword } = user;
+    return {
+      ...userWithoutPassword,
+      createdAt: new Date().toISOString(),
+      inventory: [],
+      transactions: []
+    };
   },
 
   register: async (userData) => {
     // Simular uma chamada de API
     await delay(1000);
     
-    // Aqui você substituiria por uma chamada real à sua API
-    if (userData.email && userData.password && userData.name && userData.birthDate && userData.acceptTerms) {
-      // Simulando um usuário criado
-      const user = {
-        id: '1',
-        name: userData.name,
-        email: userData.email,
-        birthDate: userData.birthDate,
-        createdAt: new Date().toISOString(),
-        inventory: [],
-        transactions: []
-      };
-      
-      return user;
+    // ⚠️ VULNERABILIDADE: Em produção, valide no backend
+    if (!userData.email || !userData.password || !userData.name || !userData.birthDate || !userData.acceptTerms) {
+      throw new Error('Dados de registro inválidos');
     }
     
-    throw new Error('Dados de registro inválidos');
+    // Verificar se email já existe
+    const existingUser = mockUsers.find(u => 
+      u.email.toLowerCase() === userData.email.toLowerCase()
+    );
+    
+    if (existingUser) {
+      throw new Error('Email já está em uso');
+    }
+    
+    // Criar novo usuário
+    const newUser = {
+      id: String(mockUsers.length + 1),
+      name: userData.name,
+      email: userData.email,
+      password: userData.password, // ⚠️ Em produção, hash a senha
+      birthDate: userData.birthDate,
+      role: 'user', // Novos usuários sempre são 'user'
+      createdAt: new Date().toISOString(),
+      inventory: [],
+      transactions: []
+    };
+    
+    // Adicionar à base simulada
+    mockUsers.push(newUser);
+    
+    // Retornar sem a senha
+    const { password: _, ...userWithoutPassword } = newUser;
+    return userWithoutPassword;
   },
 
   validateEmail: (email) => {
@@ -102,4 +158,4 @@ const authService = {
   }
 };
 
-export default authService; 
+export default authService;
