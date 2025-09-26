@@ -2,11 +2,20 @@ import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { useAuth } from '../../providers/AuthProvider';
 import { computeProjections, validateAssumptions, conservativeAssumptions } from '../../lib/projections';
 import './AdminDashboard.css';
+import GrowthChart from '../../components/charts/GrowthChart';
+import PriceChart from '../../components/charts/PriceChart';
+import RetentionChart from '../../components/charts/RetentionChart';
+import { growthData } from '../../Data/growthData';
+import { priceData } from '../../Data/priceData';
+import { retentionData } from '../../Data/retentionData';
 
 // Lazy loading dos modais para reduzir bundle inicial
 const UserGrowthModal = lazy(() => import('./modals/UserGrowthModal'));
 const RevenueModal = lazy(() => import('./modals/RevenueModal'));
 const DepreciationModal = lazy(() => import('./modals/DepreciationModal'));
+const AdsGrowthModal = lazy(() => import('./modals/AdsGrowthModal'));
+const PriceModal = lazy(() => import('./modals/PriceModal'));
+const RetentionModal = lazy(() => import('./modals/RetentionModal'));
 
 // Componente genérico de Line Chart com hover e área
 const LineChart = React.memo(({ data, valueKey, title, legend, color, valueFormat, axisValueFormat, footerLabel }) => {
@@ -171,6 +180,7 @@ const AdminDashboard = () => {
     return null;
   }, []);
   const [selectedModal, setSelectedModal] = useState(null);
+  // selectedModal values: 'userGrowth' | 'revenue' | 'depreciation' | 'adsGrowth' | 'priceTrends' | 'retentionTrends'
 
   // Séries baseadas nas projeções matemáticas (fonte única de dados)
   const userSeries = useMemo(() => {
@@ -309,6 +319,24 @@ const AdminDashboard = () => {
             <DepreciationModal {...modalProps} />
           </Suspense>
         );
+      case 'adsGrowth':
+        return (
+          <Suspense fallback={<div className="modal-loading">Carregando...</div>}>
+            <AdsGrowthModal onClose={closeModal} data={growthData} />
+          </Suspense>
+        );
+      case 'priceTrends':
+        return (
+          <Suspense fallback={<div className="modal-loading">Carregando...</div>}>
+            <PriceModal onClose={closeModal} data={priceData} />
+          </Suspense>
+        );
+      case 'retentionTrends':
+        return (
+          <Suspense fallback={<div className="modal-loading">Carregando...</div>}>
+            <RetentionModal onClose={closeModal} data={retentionData} />
+          </Suspense>
+        );
       default:
         return null;
     }
@@ -429,6 +457,106 @@ const AdminDashboard = () => {
                 axisValueFormat={(v) => `R$ ${v.toLocaleString()}`}
                 footerLabel=""
               />
+            </div>
+          </div>
+
+          {/* 📊 Dashboard de Tendências */}
+          <div className="dashboard-header">
+            <h2>📊 Dashboard de Tendências</h2>
+            <p>Insights de anúncios, preços e retenção</p>
+          </div>
+          {/* Cards de Métricas - Tendências */}
+          <div className="metrics-grid">
+            {/* Crescimento de Anúncios */}
+            {(() => {
+              const current = growthData[growthData.length - 1]?.anuncios ?? 0;
+              const prev = growthData[growthData.length - 2]?.anuncios ?? 0;
+              const variation = prev > 0 ? ((current - prev) / prev) * 100 : 0;
+              return (
+                <div className="metrics-card" onClick={() => setSelectedModal('adsGrowth')}>
+                  <div className="metrics-header">
+                    <h3 className="metrics-title">Crescimento de Anúncios</h3>
+                  </div>
+                  <div className="metrics-content">
+                    <div className="metrics-value">{current.toLocaleString()} anúncios</div>
+                    <div className="metrics-growth">
+                      <span className={`growth-indicator ${variation >= 0 ? 'positive' : 'negative'}`}>
+                        {variation >= 0 ? '↗' : '↘'} {Math.abs(variation).toFixed(1)}%
+                      </span>
+                      <span className="growth-label">vs mês anterior</span>
+                    </div>
+                  </div>
+                  <div className="metrics-footer">
+                    <span className="click-hint">Clique para mais detalhes →</span>
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Preços Médios por Categoria */}
+            {(() => {
+              const top = priceData.reduce((acc, d) => (d.avgPrice > acc.avgPrice ? d : acc), priceData[0]);
+              const variation = 5; // conforme especificação
+              return (
+                <div className="metrics-card" onClick={() => setSelectedModal('priceTrends')}>
+                  <div className="metrics-header">
+                    <h3 className="metrics-title">Preços Médios por Categoria</h3>
+                  </div>
+                  <div className="metrics-content">
+                    <div className="metrics-value">{top.category}: R$ {top.avgPrice.toLocaleString()} → R$ {top.previsto.toLocaleString()}</div>
+                    <div className="metrics-growth">
+                      <span className={`growth-indicator ${variation >= 0 ? 'positive' : 'negative'}`}>
+                        {variation >= 0 ? '↗' : '↘'} {Math.abs(variation).toFixed(0)}%
+                      </span>
+                      <span className="growth-label">vs período anterior</span>
+                    </div>
+                  </div>
+                  <div className="metrics-footer">
+                    <span className="click-hint">Clique para mais detalhes →</span>
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Retenção de Usuários */}
+            {(() => {
+              const last = retentionData[retentionData.length - 1];
+              const usersAtivos = last?.usuarios ?? 0;
+              const retidos = last?.retidos ?? 0;
+              const taxa = usersAtivos > 0 ? Math.round((retidos / usersAtivos) * 100) : 0;
+              const prev = retentionData[retentionData.length - 2];
+              const prevTaxa = (prev && prev.usuarios) ? (prev.retidos / prev.usuarios) * 100 : 0;
+              const variation = taxa - prevTaxa;
+              return (
+                <div className="metrics-card" onClick={() => setSelectedModal('retentionTrends')}>
+                  <div className="metrics-header">
+                    <h3 className="metrics-title">Retenção de Usuários</h3>
+                  </div>
+                  <div className="metrics-content">
+                    <div className="metrics-value">Ativos: {usersAtivos} • Retidos: {retidos} • {taxa}%</div>
+                    <div className="metrics-growth">
+                      <span className={`growth-indicator ${variation >= 0 ? 'positive' : 'negative'}`}>
+                        {variation >= 0 ? '↗' : '↘'} {Math.abs(variation).toFixed(0)}%
+                      </span>
+                      <span className="growth-label">vs mês anterior</span>
+                    </div>
+                  </div>
+                  <div className="metrics-footer">
+                    <span className="click-hint">Clique para mais detalhes →</span>
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+          <div className="charts-grid">
+            <div className="chart-card">
+              <GrowthChart />
+            </div>
+            <div className="chart-card">
+              <PriceChart />
+            </div>
+            <div className="chart-card">
+              <RetentionChart />
             </div>
           </div>
 
