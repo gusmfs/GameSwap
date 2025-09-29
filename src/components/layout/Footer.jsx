@@ -53,6 +53,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link to="/terms"><FaFileAlt /> Termos de Uso</Link></li>
               <li><Link to="/privacy"><FaPrivacy /> Política de Privacidade</Link></li>
+              <li><Link to="/acessibilidade"><FaFileAlt /> Acessibilidade</Link></li>
             </ul>
           </div>
 
