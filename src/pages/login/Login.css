@@ -84,6 +84,23 @@
   cursor: not-allowed;
 }
 
+/* Dica abaixo do campo (ex: "Esqueci minha senha") */
+.form-group small {
+  display: block;
+  color: #aaa;
+  margin-top: 8px;
+  line-height: 1.3;
+}
+
+.form-group small .auth-link {
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+.form-group small .auth-link:hover {
+  text-decoration: underline;
+}
+
 .submit-button {
   background: linear-gradient(45deg, #00d4ff, #0099cc);
   color: white;

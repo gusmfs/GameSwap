@@ -16,6 +16,7 @@ import Privacy from '../pages/terms/Privacy';
 import SocialProfile from '../pages/social/SocialProfile';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import FeedbackPage from '../pages/feedback/FeedbackPage';
+import ResetPassword from '../pages/login/ResetPassword';
 
 // Definição de todas as rotas da aplicação
 const AppRoutes = () => {
@@ -29,6 +30,7 @@ const AppRoutes = () => {
       <Route path="/u/id/:userId" element={<SocialProfile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/feedback" element={<FeedbackPage />} />
