@@ -82,6 +82,11 @@ const Login = () => {
                 placeholder="Sua senha"
                 disabled={isLoading}
               />
+              <small style={{ marginTop: 8 }}>
+                <Link to="/reset-password" className="auth-link" style={{ cursor: 'pointer' }}>
+                  Esqueci minha senha
+                </Link>
+              </small>
             </div>
 
             <button 
