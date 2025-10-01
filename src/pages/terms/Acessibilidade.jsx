@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { FaLeaf, FaBolt, FaHands } from 'react-icons/fa';
 import '../home/Home.css';
+import './Acessibilidade.css';
 
 const Acessibilidade = () => {
   const [usuarios, setUsuarios] = useState('100');
