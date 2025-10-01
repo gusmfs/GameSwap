@@ -20,6 +20,21 @@ body {
   overflow-x: hidden;
 }
 
+/* Light mode variables and overrides */
+[data-theme="light"] body {
+  background: #ffffff;
+  color: #000000;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: #1e3a8a; /* títulos azul escuro; pode alternar para #4b0082 se preferir */
+}
+
 .app {
   position: relative;
   min-height: 100vh;

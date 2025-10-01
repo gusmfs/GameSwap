@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AuthProvider from './providers/AuthProvider';
+import ThemeProvider from './providers/ThemeProvider.jsx';
 import { CartProvider } from './hooks/useCart.jsx';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <AuthProvider>
         <CartProvider>
+          <ThemeProvider>
           <div className="app">
             <div className="background-container">
             </div>
@@ -22,6 +24,7 @@ function App() {
             <ScrollToTopButton />
             <Footer />
           </div>
+          </ThemeProvider>
         </CartProvider>
       </AuthProvider>
     </Router>

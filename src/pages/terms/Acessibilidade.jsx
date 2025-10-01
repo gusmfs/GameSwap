@@ -2,9 +2,11 @@ import React, { useMemo, useState } from 'react';
 import { FaLeaf, FaBolt, FaHands } from 'react-icons/fa';
 import '../home/Home.css';
 import './Acessibilidade.css';
+import { useTheme } from '../../providers/ThemeProvider.jsx';
 
 const Acessibilidade = () => {
   const [usuarios, setUsuarios] = useState('100');
+  const { theme, toggleTheme } = useTheme();
   const consumoKwh = useMemo(() => {
     const n = Number(usuarios);
     if (Number.isNaN(n) || n < 0) return 0;
@@ -16,6 +18,17 @@ const Acessibilidade = () => {
   return (
     <main className="home">
       <div className="home-content">
+        <div style={{ position: 'relative' }}>
+          <button
+            onClick={toggleTheme}
+            className="cta-button"
+            style={{ position: 'absolute', right: 0, top: -8, padding: '0.5rem 0.75rem' }}
+            aria-label="Alternar modo noturno/diurno"
+            title={theme === 'dark' ? '☀️ Diurno' : '🌙 Noturno'}
+          >
+            {theme === 'dark' ? '☀️ Diurno' : '🌙 Noturno'}
+          </button>
+        </div>
         <div className="title-container">
           <h1 className="animated-title" data-text="GameSwap">GameSwap</h1>
           <div className="cta-buttons" style={{ marginBottom: '2rem' }}>

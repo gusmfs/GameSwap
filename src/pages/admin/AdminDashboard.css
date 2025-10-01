@@ -6,12 +6,12 @@
    1. RESET E LAYOUT PRINCIPAL
    ======================================== */
 
-.admin-dashboard {
+[data-theme="dark"] .admin-dashboard {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1f2937 0%, #1e3a8a 50%, #7c3aed 100%);
   display: flex;
   flex-direction: column;
-  color: #1e293b;
+  color: #ffffff;
 }
 
 .admin-dashboard * {
@@ -23,12 +23,12 @@
   flex: 1;
 }
 
-.admin-main {
+[data-theme="dark"] .admin-main {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
-  background: #f8fafc;
-  color: #1e293b;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
 }
 
 /* ========================================
@@ -68,12 +68,12 @@
    3. HEADER
    ======================================== */
 
-.admin-header {
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
+[data-theme="dark"] .admin-header {
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: #1e293b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
 }
 
 .admin-header * {
@@ -157,14 +157,14 @@
   color: #64748b !important;
 }
 
-.admin-sidebar {
+[data-theme="dark"] .admin-sidebar {
   width: 280px;
-  background: white;
-  border-right: 1px solid #e2e8f0;
+  background: rgba(0, 0, 0, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 80px);
-  color: #1e293b;
+  color: #ffffff;
 }
 
 .admin-sidebar * {
@@ -204,17 +204,17 @@
   position: relative;
 }
 
-.admin-nav-link:hover {
-  background: #f1f5f9;
-  color: #1e293b !important;
+[data-theme="dark"] .admin-nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff !important;
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.admin-nav-link.active {
-  background: #f8f9fa;
-  color: #1a1a1a !important;
-  border-right: 3px solid #4a4a4a;
+[data-theme="dark"] .admin-nav-link.active {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff !important;
+  border-right: 3px solid #00d4ff;
   font-weight: 600;
 }
 
@@ -244,10 +244,10 @@
    5. DASHBOARD HEADER
    ======================================== */
 
-.dashboard-header {
+[data-theme="dark"] .dashboard-header {
   margin-bottom: 2rem;
   text-align: center;
-  color: #1e293b;
+  color: #ffffff;
 }
 
 .dashboard-header * {
@@ -278,17 +278,18 @@
   margin-bottom: 2rem;
 }
 
-.metrics-card {
-  background: white;
+[data-theme="dark"] .metrics-card {
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  color: #1e293b;
+  color: #ffffff;
   will-change: transform, box-shadow;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .metrics-card:hover {
@@ -406,14 +407,14 @@
   margin-bottom: 2rem;
 }
 
-.chart-card {
-  background: white;
+[data-theme="dark"] .chart-card {
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #1e293b;
-  border: 1px solid #e2e8f0;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   will-change: transform, box-shadow;
 }
 
