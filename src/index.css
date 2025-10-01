@@ -26,6 +26,11 @@ body {
   color: #000000;
 }
 
+/* Ensure <p> default is black in light mode */
+[data-theme="light"] p {
+  color: #000000;
+}
+
 [data-theme="light"] h1,
 [data-theme="light"] h2,
 [data-theme="light"] h3,

@@ -12,7 +12,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2rem; /* mais espaçamento do topo */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -21,6 +21,90 @@ header {
   height: 60px;
   scale: 2.3;
   width: auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+/* Theme switch styles */
+.theme-switch {
+  margin-right: 1.5rem; /* padding lateral da borda direita */
+}
+
+.theme-switch .switch-track {
+  position: relative;
+  width: 56px;
+  height: 30px;
+  border-radius: 9999px;
+  background: #1e293b;
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-switch .switch-icon {
+  position: absolute;
+  left: 8px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.theme-switch.is-light .switch-icon {
+  left: auto;
+  right: 8px;
+}
+
+.theme-switch .switch-thumb {
+  position: absolute;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  box-shadow: 0 2px 6px rgba(59,130,246,0.5);
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.theme-switch.is-light .switch-thumb {
+  transform: translateX(26px);
+}
+
+/* Light mode adjustments for header */
+[data-theme="light"] header {
+  background: #ccc;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .menu-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  color: #111827;
+}
+
+[data-theme="light"] .menu-toggle:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0,0,0,0.2);
+}
+
+[data-theme="light"] .nav-menu li a {
+  color: #111827;
+}
+
+[data-theme="light"] .nav-menu li a:hover,
+[data-theme="light"] .nav-menu li a.active {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+[data-theme="light"] .nav-menu li a.active::after {
+  background: #3b82f6;
 }
 
 .nav-menu {
@@ -32,7 +116,7 @@ header {
 }
 
 .nav-menu li a {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
   font-family: "Tektur", sans-serif;
   font-weight: 500;
@@ -174,6 +258,20 @@ header {
   font-size: 18px;
   color: #fff;
   transition: all 0.3s ease;
+}
+
+[data-theme="light"] .cart-icon {
+  color: #111827;
+}
+
+[data-theme="light"] .cart-nav-item a:hover,
+[data-theme="light"] .cart-nav-item a.active {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+[data-theme="light"] .cart-nav-item a.active::after {
+  background: #3b82f6;
 }
 
 .cart-nav-item a:hover .cart-icon,

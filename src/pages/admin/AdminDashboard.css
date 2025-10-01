@@ -6,11 +6,15 @@
    1. RESET E LAYOUT PRINCIPAL
    ======================================== */
 
-[data-theme="dark"] .admin-dashboard {
+.admin-dashboard {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1f2937 0%, #1e3a8a 50%, #7c3aed 100%);
   display: flex;
   flex-direction: column;
+}
+
+/* Dark mode palette for dashboard (matches homepage) */
+[data-theme="dark"] .admin-dashboard {
+  background: linear-gradient(135deg, #1f2937 0%, #1e3a8a 50%, #7c3aed 100%);
   color: #ffffff;
 }
 
@@ -23,10 +27,13 @@
   flex: 1;
 }
 
-[data-theme="dark"] .admin-main {
+.admin-main {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
+}
+
+[data-theme="dark"] .admin-main {
   background: rgba(255, 255, 255, 0.04);
   color: #ffffff;
 }
@@ -68,12 +75,27 @@
    3. HEADER
    ======================================== */
 
+.admin-header {
+  padding: 2rem 2rem;
+}
+
 [data-theme="dark"] .admin-header {
   background: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   color: #ffffff;
+}
+
+/* Light mode: keep original dashboard look (white background, dark text) */
+[data-theme="light"] .admin-dashboard {
+  background: #ffffff;
+  color: #1e293b;
+}
+
+[data-theme="light"] .admin-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1e293b;
 }
 
 .admin-header * {
@@ -157,14 +179,23 @@
   color: #64748b !important;
 }
 
-[data-theme="dark"] .admin-sidebar {
+.admin-sidebar {
   width: 280px;
-  background: rgba(0, 0, 0, 0.4);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   height: calc(100vh - 80px);
+}
+
+[data-theme="dark"] .admin-sidebar {
+  background: rgba(0, 0, 0, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   color: #ffffff;
+}
+
+[data-theme="light"] .admin-sidebar {
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+  color: #1f2937;
 }
 
 .admin-sidebar * {
@@ -244,9 +275,12 @@
    5. DASHBOARD HEADER
    ======================================== */
 
-[data-theme="dark"] .dashboard-header {
+.dashboard-header {
   margin-bottom: 2rem;
   text-align: center;
+}
+
+[data-theme="dark"] .dashboard-header {
   color: #ffffff;
 }
 
@@ -278,18 +312,28 @@
   margin-bottom: 2rem;
 }
 
-[data-theme="dark"] .metrics-card {
-  background: rgba(0, 0, 0, 0.5);
+.metrics-card {
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  color: #ffffff;
   will-change: transform, box-shadow;
+}
+
+[data-theme="dark"] .metrics-card {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .metrics-card {
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  color: #1e293b;
+  border: 1px solid #e5e7eb;
 }
 
 .metrics-card:hover {
@@ -407,15 +451,25 @@
   margin-bottom: 2rem;
 }
 
-[data-theme="dark"] .chart-card {
-  background: rgba(0, 0, 0, 0.5);
+.chart-card {
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+[data-theme="dark"] .chart-card {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  will-change: transform, box-shadow;
+}
+
+[data-theme="light"] .chart-card {
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  color: #1e293b;
+  border: 1px solid #e5e7eb;
 }
 
 .chart-card:hover {
@@ -431,6 +485,10 @@
   background: #ffffff;
 }
 
+[data-theme="dark"] .line-chart-container {
+  background: #0b1220;
+}
+
 .line-chart-svg {
   display: block;
 }
@@ -440,14 +498,26 @@
   stroke-width: 1;
 }
 
+[data-theme="dark"] .axis-line {
+  stroke: #334155;
+}
+
 .axis-tick {
   stroke: #94a3b8;
   stroke-width: 1;
 }
 
+[data-theme="dark"] .axis-tick {
+  stroke: #475569;
+}
+
 .axis-label {
   fill: #64748b;
   font-size: 10px;
+}
+
+[data-theme="dark"] .axis-label {
+  fill: #94a3b8;
 }
 
 .line-path {
@@ -507,6 +577,10 @@
   margin-top: 10px;
   color: #1e293b;
   font-size: 0.875rem;
+}
+
+[data-theme="dark"] .chart-footer {
+  color: #e5e7eb;
 }
 
 .chart-container {

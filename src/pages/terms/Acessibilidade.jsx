@@ -6,7 +6,7 @@ import { useTheme } from '../../providers/ThemeProvider.jsx';
 
 const Acessibilidade = () => {
   const [usuarios, setUsuarios] = useState('100');
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const consumoKwh = useMemo(() => {
     const n = Number(usuarios);
     if (Number.isNaN(n) || n < 0) return 0;
@@ -18,17 +18,7 @@ const Acessibilidade = () => {
   return (
     <main className="home">
       <div className="home-content">
-        <div style={{ position: 'relative' }}>
-          <button
-            onClick={toggleTheme}
-            className="cta-button"
-            style={{ position: 'absolute', right: 0, top: -8, padding: '0.5rem 0.75rem' }}
-            aria-label="Alternar modo noturno/diurno"
-            title={theme === 'dark' ? '☀️ Diurno' : '🌙 Noturno'}
-          >
-            {theme === 'dark' ? '☀️ Diurno' : '🌙 Noturno'}
-          </button>
-        </div>
+        <div style={{ height: '24px' }} />
         <div className="title-container">
           <h1 className="animated-title" data-text="GameSwap">GameSwap</h1>
           <div className="cta-buttons" style={{ marginBottom: '2rem' }}>
@@ -87,7 +77,7 @@ const Acessibilidade = () => {
                   onChange={(e) => setUsuarios(e.target.value)}
                   placeholder="Ex: 100"
                   className="feedback-field-input"
-                  style={{ padding: '0.75rem 1rem', borderRadius: 8, border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.05)', color: '#fff' }}
+                  style={{ padding: '0.75rem 1rem', borderRadius: 8 }}
                 />
                 <p className="feature-description" style={{ marginTop: 12 }}>
                   Com {Number(usuarios) || 0} usuários ativos, o consumo estimado seria de <strong>{consumoKwh} kWh</strong>,

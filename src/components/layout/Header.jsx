@@ -6,6 +6,7 @@ import AuthModal from '../auth/AuthModal';
 import { FaShoppingCart } from 'react-icons/fa';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import logoImage from '../../assets/Images/LOGOTIPO(POSITIVO).png';
+import { useTheme } from '../../providers/ThemeProvider.jsx';
 import './Header.css';
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const { cart, cartState } = useCart();
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -71,14 +73,29 @@ const Header = () => {
               <img src={logoImage} alt="GameSwap Logo" className="logo-image" />
             </Link>
           </div>
-          <button 
-            className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Menu" 
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <RiCloseLine /> : <RiMenuLine />}
-          </button>
+          <div className="nav-actions">
+            <button
+              className={`theme-switch ${theme === 'dark' ? 'is-dark' : 'is-light'}`}
+              onClick={toggleTheme}
+              aria-label="Alternar modo noturno/diurno"
+              role="switch"
+              aria-checked={theme === 'dark'}
+              title={theme === 'dark' ? '☀️ Diurno' : '🌙 Noturno'}
+            >
+              <span className="switch-track">
+                <span className="switch-icon">{theme === 'dark' ? '☀️' : '🌙'}</span>
+                <span className="switch-thumb" />
+              </span>
+            </button>
+            <button 
+              className={`menu-toggle ${isMenuOpen ? 'active' : ''}`}
+              onClick={toggleMenu}
+              aria-label="Menu" 
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <RiCloseLine /> : <RiMenuLine />}
+            </button>
+          </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
             <li><Link to="/" className={isActive('/')}>Home</Link></li>
             <li><Link to="/marketplace" className={isActive('/marketplace')}>Marketplace</Link></li>

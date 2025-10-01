@@ -106,4 +106,21 @@
   }
 }
 
+/* Light mode legibility for Acessibilidade page */
+[data-theme="light"] .home .feature-description,
+[data-theme="light"] .home .tagline,
+[data-theme="light"] .home p {
+  color: #000000;
+}
+
+[data-theme="light"] .home .feedback-field-input {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+}
+
+[data-theme="light"] .home label {
+  color: #111827;
+}
+
 
