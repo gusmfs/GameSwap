@@ -1,0 +1,109 @@
+.animated-title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(90deg, #6c5ce7, #fd79a8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  white-space: nowrap;
+  text-shadow: none;
+  border-right: none;
+  padding-right: 0;
+  -webkit-text-stroke: 2px white;
+}
+
+.animated-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #6c5ce7, #fd79a8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: glitchEffect 5s linear infinite;
+  -webkit-text-stroke: 0;
+}
+
+@keyframes glitchEffect {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  2% {
+    clip-path: polygon(10% 10%, 100% 10%, 100% 20%, 10% 20%);
+  }
+  4% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 30%, 0 30%);
+  }
+  6% {
+    clip-path: polygon(0 40%, 100% 40%, 100% 55%, 0 55%);
+  }
+  8% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 85%, 0 85%);
+  }
+  10% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 100%, 0 100%);
+  }
+  12% {
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 10% 100%);
+  }
+  14% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  16% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 80%, 0 80%);
+  }
+  18% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  }
+  20% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  87% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  90% {
+    clip-path: polygon(30% 10%, 70% 10%, 70% 20%, 30% 20%);
+  }
+  93% {
+    clip-path: polygon(30% 60%, 70% 60%, 70% 70%, 30% 70%);
+  }
+  97% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 950px) {
+  .animated-title {
+    font-size: 4rem;
+    -webkit-text-stroke: 2px white;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-title {
+    font-size: 3rem;
+    white-space: normal;
+    border-right: none;
+    padding-right: 0;
+    -webkit-text-stroke: 2px white;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-title {
+    font-size: 2.8rem;
+    -webkit-text-stroke: 1px white;
+  }
+}
+
+
