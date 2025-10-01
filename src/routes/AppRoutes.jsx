@@ -17,6 +17,7 @@ import SocialProfile from '../pages/social/SocialProfile';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import FeedbackPage from '../pages/feedback/FeedbackPage';
 import ResetPassword from '../pages/login/ResetPassword';
+import Acessibilidade from '../pages/terms/Acessibilidade';
 
 // Definição de todas as rotas da aplicação
 const AppRoutes = () => {
@@ -34,6 +35,7 @@ const AppRoutes = () => {
       <Route path="/terms" element={<Terms />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/feedback" element={<FeedbackPage />} />
+      <Route path="/acessibilidade" element={<Acessibilidade />} />
 
       {/* Rotas Privadas */}
       <Route
