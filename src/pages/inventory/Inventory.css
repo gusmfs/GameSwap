@@ -3,69 +3,7 @@
   padding: 2rem 0;
   position: relative;
   overflow: hidden;
-}
-
-.animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  overflow: hidden;
-}
-
-.blur-circle {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.3;
-}
-
-.circle1 {
-  width: 400px;
-  height: 400px;
-  background: #00d4ff;
-  top: -100px;
-  left: -100px;
-  animation: float 8s ease-in-out infinite;
-}
-
-.circle2 {
-  width: 300px;
-  height: 300px;
-  background: #6c5ce7;
-  bottom: -50px;
-  right: -50px;
-  animation: float 10s ease-in-out infinite;
-}
-
-.circle3 {
-  width: 250px;
-  height: 250px;
-  background: #00b894;
-  top: 50%;
-  left: 30%;
-  animation: float 12s ease-in-out infinite;
-}
-
-.circle4 {
-  width: 200px;
-  height: 200px;
-  background: #ff6b6b;
-  bottom: 30%;
-  right: 20%;
-  animation: float 9s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-20px) scale(1.05);
-  }
+  background: #0a0a0a;
 }
 
 .inventory-container {
@@ -155,6 +93,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  justify-content: center;
 }
 
 .add-item-button:hover {
@@ -173,11 +112,33 @@
 .loading-container,
 .error-container,
 .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 3rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   margin: 2rem 0;
+  min-height: 300px;
+  gap: 1.5rem;
+}
+
+.empty-state h3 {
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+  font-family: "Tektur", sans-serif;
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  margin: 0 0 1rem 0;
+  color: #ccc;
+  font-family: "Electrolize", sans-serif;
+  font-size: 1rem;
+  max-width: 400px;
+  line-height: 1.5;
 }
 
 .loading-spinner {

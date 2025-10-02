@@ -131,12 +131,6 @@ const Inventory = () => {
 
   return (
     <main className="inventory">
-      <div className="animated-background">
-        <div className="blur-circle circle1"></div>
-        <div className="blur-circle circle2"></div>
-        <div className="blur-circle circle3"></div>
-        <div className="blur-circle circle4"></div>
-      </div>
 
       <div className="inventory-container">
         <div className="inventory-header">

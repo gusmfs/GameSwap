@@ -4,6 +4,7 @@
   color: #fff;
   position: relative;
   overflow: hidden;
+  background: #0a0a0a;
 }
 
 .profile-container {
@@ -231,25 +232,6 @@
   opacity: 1;
 }
 
-/* Reuse the animated background from Marketplace */
-.animated-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.blur-circle {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.5;
-  animation: floatAnimation 15s infinite linear;
-}
 
 @media (max-width: 768px) {
   .profile-page {
