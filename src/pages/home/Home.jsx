@@ -17,9 +17,15 @@ function Home() {
       <section className="container">
         <div className="slider-wrapper">
            <div className="slider">
-            <img id="slide1" src={banner1} alt="Banner 1" />
-            <img id="slide2" src={banner2} alt="Banner 2" />
-            <img id="slide3" src={banner3} alt="Banner 3" />
+            <div className="slide-item" style={{'--bg-image': `url(${banner1})`}}>
+              <img id="slide1" src={banner1} alt="Banner 1" />
+            </div>
+            <div className="slide-item" style={{'--bg-image': `url(${banner2})`}}>
+              <img id="slide2" src={banner2} alt="Banner 2" />
+            </div>
+            <div className="slide-item" style={{'--bg-image': `url(${banner3})`}}>
+              <img id="slide3" src={banner3} alt="Banner 3" />
+            </div>
           </div>
         </div>
 
