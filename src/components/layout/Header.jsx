@@ -28,11 +28,16 @@ const Header = () => {
 
   const handleAuthRequiredClick = (e, path) => {
     e.preventDefault();
+    setIsMenuOpen(false); // Fecha o menu ao clicar
     if (!isAuthenticated) {
       setIsAuthModalOpen(true);
     } else {
       navigate(path);
     }
+  };
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false); // Fecha o menu ao clicar em qualquer link
   };
 
   // Lógica binária para determinar se mostrar o carrinho
@@ -97,8 +102,8 @@ const Header = () => {
             </button>
           </div>
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-            <li><Link to="/" className={isActive('/')}>Home</Link></li>
-            <li><Link to="/marketplace" className={isActive('/marketplace')}>Marketplace</Link></li>
+            <li><Link to="/" className={isActive('/')} onClick={handleLinkClick}>Home</Link></li>
+            <li><Link to="/marketplace" className={isActive('/marketplace')} onClick={handleLinkClick}>Marketplace</Link></li>
             <li>
               <a 
                 href="/inventory" 
@@ -124,6 +129,7 @@ const Header = () => {
                   to="/cart" 
                   className={isActive('/cart')} 
                   title={cartStateInfo.title}
+                  onClick={handleLinkClick}
                 >
                   <FaShoppingCart className={cartStateInfo.className} />
                   {cart.length > 0 && (

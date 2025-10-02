@@ -46,11 +46,6 @@ const Login = () => {
 
   return (
     <div className="auth-page">
-      <div className="animated-background">
-        <div className="blur-circle circle1"></div>
-        <div className="blur-circle circle2"></div>
-        <div className="blur-circle circle3"></div>
-      </div>
 
       <div className="auth-container">
         <div className="auth-card">

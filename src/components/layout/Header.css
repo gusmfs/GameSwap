@@ -146,13 +146,12 @@ header {
 
 .menu-toggle {
   display: none;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border: none;
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.75rem;
-  border-radius: 8px;
   transition: all 0.3s ease;
   min-width: 48px;
   min-height: 48px;
@@ -161,14 +160,11 @@ header {
 }
 
 .menu-toggle:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
+  color: #00d4ff;
   transform: scale(1.05);
 }
 
 .menu-toggle.active {
-  background: rgba(0, 212, 255, 0.2);
-  border-color: #00d4ff;
   color: #00d4ff;
 }
 
@@ -180,7 +176,11 @@ header {
 /* Mobile Styles */
 @media (max-width: 768px) {
   .main-nav {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    padding-left: 0.5rem;
   }
 
   .menu-toggle {
@@ -373,5 +373,21 @@ header {
     width: 22px;
     height: 22px;
     font-size: 11px;
+  }
+}
+
+/* Mobile extra small screens */
+@media (max-width: 480px) {
+  .main-nav {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    padding-left: 0.75rem;
+  }
+
+  .logo-image {
+    height: 50px;
+    scale: 2.0;
   }
 }
