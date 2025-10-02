@@ -111,6 +111,26 @@ a {
   @apply bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-all;
 }
 
+/* Ajustes para evitar sobreposição com Crisp Chat */
+.crisp-client,
+.crisp-client *,
+[class*="crisp-"],
+[class*="crisp-"] *,
+div[class*="crisp"],
+iframe[src*="crisp"] {
+  z-index: 1000 !important;
+}
+
+.scroll-to-top {
+  z-index: 9999 !important;
+}
+
+/* Garantir que o botão de voltar ao topo fique sempre visível */
+.scroll-to-top {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
 /* Animações para o carrinho */
 @keyframes blob {
   0% {

@@ -11,6 +11,10 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* Mapa do Site */
@@ -21,11 +25,15 @@
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  justify-items: center;
 }
 
 .footer-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .footer-section-title {
@@ -51,6 +59,7 @@
 .footer-links a {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: #ccc;
   text-decoration: none;
@@ -62,7 +71,7 @@
 
 .footer-links a:hover {
   color: #00d4ff;
-  transform: translateX(5px);
+  transform: scale(1.05);
 }
 
 .footer-links svg {
