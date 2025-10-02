@@ -294,6 +294,9 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
+[data-theme="dark"] .dashboard-header h2 {
+  color: #ffffff !important;
+}
 
 .dashboard-header p {
   color: #64748b !important;
@@ -595,6 +598,9 @@
   margin-bottom: 1.5rem;
   text-align: center;
 }
+[data-theme="dark"] .chart-title {
+  color: #ffffff !important;
+}
 
 .chart-bars {
   display: flex;
@@ -671,6 +677,9 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
+}
+[data-theme="dark"] .projections-demo h3 {
+  color: #ffffff !important;
 }
 
 .projections-demo p {
@@ -755,6 +764,10 @@
   contain: content;
   backface-visibility: hidden;
 }
+[data-theme="dark"] .modal-content {
+  background: #0b1220;
+  color: #ffffff;
+}
 
 .modal-header {
   display: flex;
@@ -775,6 +788,9 @@
   color: #1e293b;
   font-size: 24px;
   font-weight: 600;
+}
+[data-theme="dark"] .modal-header h2 {
+  color: #ffffff;
 }
 
 .modal-close {
@@ -818,6 +834,9 @@
   font-weight: 600;
   border-bottom: 2px solid #e2e8f0;
   padding-bottom: 8px;
+}
+[data-theme="dark"] .modal-section h3 {
+  color: #ffffff;
 }
 
 /* ========================================

@@ -11,6 +11,12 @@
   overflow: hidden;
 }
 
+/* Light mode for terms/privacy pages */
+[data-theme="light"] .terms-page {
+  background: #f3f4f6; /* cinza claro */
+  color: #111827;
+}
+
 
 .terms-container {
   position: relative;
@@ -26,6 +32,10 @@
   padding: 2rem;
   box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.2);
 }
+[data-theme="light"] .terms-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
 
 .terms-header {
   text-align: center;
@@ -40,6 +50,10 @@
   margin-bottom: 0.5rem;
   text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
+[data-theme="light"] .terms-title {
+  color: #1e3a8a;
+  text-shadow: none;
+}
 
 .terms-date {
   font-family: "Electrolize", sans-serif;
@@ -50,6 +64,9 @@
   font-family: "Electrolize", sans-serif;
   color: #d1d5db;
   line-height: 1.75;
+}
+[data-theme="light"] .terms-content {
+  color: #111827;
 }
 
 .terms-section {
@@ -63,6 +80,9 @@
   color: #60a5fa;
   margin-bottom: 1rem;
 }
+[data-theme="light"] .terms-section h2 {
+  color: #1e3a8a;
+}
 
 .terms-section p {
   margin-bottom: 1rem;
@@ -73,6 +93,9 @@
   list-style-position: inside;
   margin-top: 0.5rem;
   margin-left: 1rem;
+}
+[data-theme="light"] .terms-section li {
+  color: #111827;
 }
 
 .terms-section li {

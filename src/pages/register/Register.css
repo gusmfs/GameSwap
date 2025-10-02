@@ -14,6 +14,10 @@
   padding: 2rem;
   max-width: 500px;
 }
+[data-theme="light"] .auth-card {
+  background: #ccc; /* mesma cor do header light */
+  border: 1px solid rgba(0,0,0,0.08);
+}
 
 /* Adjust spacing for the longer form */
 .auth-form {
@@ -62,6 +66,9 @@
   color: #ccc;
   font-family: "Electrolize", sans-serif;
   flex: 1;
+}
+[data-theme="light"] .checkbox-text {
+  color: #111827;
 }
 
 .terms-link {

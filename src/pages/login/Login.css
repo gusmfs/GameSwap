@@ -7,6 +7,9 @@
   position: relative;
   overflow: hidden;
 }
+[data-theme="light"] .auth-page {
+  background: #f3f4f6; /* cinza claro */
+}
 
 .auth-container {
   width: 100%;
@@ -22,6 +25,10 @@
   padding: 2.5rem;
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.2),
               0 0 40px rgba(0, 212, 255, 0.1);
+}
+[data-theme="light"] .auth-card {
+  background: #ccc; /* mesma cor do header light */
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
 .auth-card h1 {
@@ -57,6 +64,9 @@
   color: #fff;
   font-size: 0.9rem;
 }
+[data-theme="light"] .form-group label {
+  color: #111827;
+}
 
 .form-group input {
   background: rgba(255, 255, 255, 0.05);
@@ -66,6 +76,11 @@
   color: #fff;
   font-family: "Electrolize", sans-serif;
   transition: all 0.3s ease;
+}
+[data-theme="light"] .form-group input {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
 }
 
 .form-group input:focus {
@@ -94,6 +109,9 @@
 .form-group small .auth-link {
   color: #00d4ff;
   text-decoration: none;
+}
+[data-theme="light"] .form-group small .auth-link {
+  color: #1e3a8a; /* azul escuro para links como "esqueci minha senha" */
 }
 
 .form-group small .auth-link:hover {

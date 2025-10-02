@@ -6,6 +6,10 @@
   overflow: hidden;
   background: #0a0a0a;
 }
+[data-theme="light"] .profile-page {
+  background: #f3f4f6; /* cinza claro */
+  color: #111827;
+}
 
 .profile-container {
   position: relative;
@@ -45,6 +49,10 @@
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.2),
               0 0 40px rgba(0, 212, 255, 0.1);
 }
+[data-theme="light"] .profile-card {
+  background: #ccc; /* mesma cor do header light */
+  border: 1px solid rgba(0,0,0,0.08);
+}
 
 .profile-info {
   margin-bottom: 2rem;
@@ -61,6 +69,9 @@
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
+[data-theme="light"] .info-group label {
+  color: #374151;
+}
 
 .info-group p {
   font-family: "Tektur", sans-serif;
@@ -71,6 +82,9 @@
   background: rgba(0, 212, 255, 0.1);
   border-radius: 6px;
   border: 1px solid rgba(0, 212, 255, 0.2);
+}
+[data-theme="light"] .info-group p {
+  color: #111827;
 }
 
 /* Seções do profile padronizadas */

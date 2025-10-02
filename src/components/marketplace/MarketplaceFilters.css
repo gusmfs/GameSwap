@@ -45,6 +45,11 @@
   font-size: 1rem;
   transition: all 0.3s ease;
 }
+[data-theme="light"] .search-input {
+  background: #e6f4ff; /* azul claro */
+  border: 1px solid #93c5fd; /* azul claro borda */
+  color: #111827;
+}
 
 .search-input:focus {
   outline: none;
