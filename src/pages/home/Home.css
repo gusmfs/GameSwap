@@ -163,6 +163,324 @@
   font-weight: 900;
 }
 
+/* CTA Section */
+.cta-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 153, 204, 0.05));
+  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.cta-title {
+  font-family: "Tektur", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #00d4ff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cta-description {
+  font-family: "Electrolize", sans-serif;
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.cta-description strong {
+  color: #ffbf00;
+  font-weight: 900;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondary-cta {
+  background: linear-gradient(45deg, #ff6b35, #ff8c42);
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+.secondary-cta:hover {
+  background: linear-gradient(45deg, #e55a2b, #e67e3a);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+}
+
+/* Featured Skins Section */
+.featured-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 20, 40, 0.9));
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%2300d4ff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%2300d4ff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%2300d4ff" opacity="0.05"/><circle cx="10" cy="60" r="0.5" fill="%2300d4ff" opacity="0.05"/><circle cx="90" cy="40" r="0.5" fill="%2300d4ff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.featured-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.featured-title {
+  font-family: "Tektur", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00d4ff;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.featured-subtitle {
+  font-family: "Electrolize", sans-serif;
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+.featured-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  gap: 1rem;
+}
+
+.featured-loading .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 212, 255, 0.3);
+  border-top: 3px solid #00d4ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.featured-loading p {
+  color: #ccc;
+  font-family: "Electrolize", sans-serif;
+  font-size: 1.1rem;
+}
+
+.featured-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.featured-track {
+  display: flex;
+  animation: slide 60s linear infinite;
+  gap: 2rem;
+  width: fit-content;
+}
+
+.featured-card-wrapper {
+  flex: 0 0 380px;
+  height: 480px;
+}
+
+.featured-card-wrapper .skin-card {
+  height: 100%;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-card-wrapper:hover .skin-card {
+  transform: scale(0.95);
+}
+
+/* Melhorar visibilidade dos preços na seção de destaques */
+.featured-card-wrapper .price-section {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  width: 100%;
+  max-width: 280px;
+}
+
+.featured-card-wrapper .price-value {
+  color: #00ff88;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+.featured-card-wrapper .market-price-value {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+/* Destacar preços com badge */
+.featured-card-wrapper .current-price {
+  background: linear-gradient(45deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.featured-card-wrapper .price-label {
+  color: #00d4ff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.featured-card-wrapper .price-value {
+  color: #00ff88;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  font-family: "Tektur", sans-serif;
+}
+
+/* Ajustar espaçamento interno dos cards */
+.featured-card-wrapper .skin-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.featured-card-wrapper .skin-details {
+  margin-bottom: 1rem;
+}
+
+.featured-card-wrapper .card-actions {
+  margin-top: auto;
+}
+
+/* Ocultar elementos de descrição nos cards de destaque */
+.featured-card-wrapper .skin-details {
+  display: none;
+}
+
+.featured-card-wrapper .card-actions {
+  display: none;
+}
+
+.featured-card-wrapper .skin-name-container {
+  margin-bottom: 1rem;
+}
+
+.featured-card-wrapper .skin-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.featured-card-wrapper .skin-rarity {
+  font-size: 0.9rem;
+}
+
+.featured-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 3rem;
+  background: linear-gradient(45deg, #00d4ff, #0099cc);
+  color: white;
+  text-decoration: none;
+  border-radius: 13px;
+  font-family: "Tektur", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.featured-button:hover::before {
+  left: 100%;
+}
+
+.featured-button:hover {
+  background: linear-gradient(45deg, #00b8e6, #0088bb);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.4);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 .tagline {
   font-family: "Electrolize", sans-serif;
@@ -317,6 +635,27 @@
   .intelpannel-img img {
     max-width: 300px;
   }
+
+  .cta-container {
+    max-width: 600px;
+  }
+
+  .featured-section {
+    padding: 3rem 1rem;
+  }
+
+  .featured-title {
+    font-size: 2rem;
+  }
+
+  .featured-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .featured-card-wrapper {
+    flex: 0 0 350px;
+    height: 440px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -365,6 +704,44 @@
   }
 
   .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .featured-section {
+    padding: 2rem 1rem;
+  }
+
+  .featured-title {
+    font-size: 1.8rem;
+  }
+
+  .featured-subtitle {
+    font-size: 1rem;
+  }
+
+  .featured-card-wrapper {
+    flex: 0 0 320px;
+    height: 420px;
+  }
+
+  .featured-button {
     padding: 0.8rem 2rem;
     font-size: 1rem;
   }
@@ -420,6 +797,50 @@
   }
 
   .cta-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-description {
+    font-size: 0.9rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .featured-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .featured-title {
+    font-size: 1.5rem;
+  }
+
+  .featured-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .featured-card-wrapper {
+    flex: 0 0 280px;
+    height: 380px;
+  }
+
+  .featured-button {
     padding: 0.7rem 1.5rem;
     font-size: 0.9rem;
   }
