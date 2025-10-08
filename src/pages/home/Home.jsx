@@ -5,7 +5,7 @@ import './Home.css';
 import banner1 from '../../assets/Images/Banner1.png'
 import banner2 from '../../assets/Images/Banner2.png'
 import banner3 from '../../assets/Images/Banner3.png'
-import gif from '../../assets/Images/IntelPannel.gif'
+import gif from '../../assets/Images/IntelPannellight.gif'
 import { fetchSkins } from '../../services/skinsApi.js';
 import SkinCard from '../../components/marketplace/SkinCard.jsx';
 

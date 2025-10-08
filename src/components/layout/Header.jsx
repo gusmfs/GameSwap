@@ -6,6 +6,7 @@ import AuthModal from '../auth/AuthModal';
 import { FaShoppingCart } from 'react-icons/fa';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import logoImage from '../../assets/Images/LOGOTIPO(POSITIVO).png';
+import logoLightMode from '../../assets/Images/LOGOTIPO GAMESWAP (NEGATIVO).png';
 import { useTheme } from '../../providers/ThemeProvider.jsx';
 import './Header.css';
 
@@ -75,7 +76,7 @@ const Header = () => {
         <nav className="main-nav">
           <div className="logo">
             <Link to="/">
-              <img src={logoImage} alt="GameSwap Logo" className="logo-image" />
+              <img src={theme === 'light' ? logoLightMode : logoImage} alt="GameSwap Logo" className="logo-image" />
             </Link>
           </div>
           <div className="nav-actions">

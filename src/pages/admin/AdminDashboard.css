@@ -26,6 +26,7 @@
 .admin-content {
   display: flex;
   flex: 1;
+  min-height: 100%;
 }
 
 .admin-main {
@@ -124,6 +125,7 @@
   color: #1e293b !important;
   margin: 0;
 }
+[data-theme="dark"] .admin-title { color: #ffffff !important; }
 
 .admin-icon {
   font-size: 1.75rem;
@@ -184,7 +186,7 @@
   width: 280px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 80px);
+  height: 100%;
 }
 
 [data-theme="dark"] .admin-sidebar {
@@ -378,6 +380,7 @@
   font-weight: 600;
   margin: 0;
 }
+[data-theme="dark"] .metrics-title { color: #ffffff !important; }
 
 .metrics-icon {
   width: 40px;
@@ -402,6 +405,7 @@
   font-weight: 700;
   line-height: 1;
 }
+[data-theme="dark"] .metrics-value { color: #ffffff !important; }
 
 .metrics-growth {
   display: flex;
@@ -485,13 +489,8 @@
   color: inherit;
 }
 
-.line-chart-container {
-  background: #ffffff;
-}
-
-[data-theme="dark"] .line-chart-container {
-  background: #0b1220;
-}
+.line-chart-container { background: #ffffff; }
+[data-theme="dark"] .line-chart-container { background: transparent; }
 
 .line-chart-svg {
   display: block;
@@ -823,6 +822,7 @@
 .modal-section {
   margin-bottom: 40px;
 }
+[data-theme="dark"] .modal-section { background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 16px; }
 
 .modal-section:last-child {
   margin-bottom: 0;
@@ -854,6 +854,7 @@
   max-width: 820px;
   margin: 0 auto;
 }
+[data-theme="dark"] .detailed-chart { background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1); }
 
 .detailed-chart .chart-container {
   margin: 0;
@@ -911,22 +912,26 @@
   background: white;
   will-change: transform;
 }
+[data-theme="dark"] .scenario-card { background: #0b1220; border-color: rgba(255, 255, 255, 0.15); }
 
 .scenario-card.conservative {
   border-color: #f59e0b;
   background: linear-gradient(135deg, #fffbeb, #fef3c7);
 }
+[data-theme="dark"] .scenario-card.conservative { background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.06)); }
 
 .scenario-card.optimistic {
   border-color: #10b981;
   background: linear-gradient(135deg, #ecfdf5, #d1fae5);
 }
+[data-theme="dark"] .scenario-card.optimistic { background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.06)); }
 
 .scenario-card h4 {
   margin: 0 0 12px 0;
   font-size: 16px;
   font-weight: 600;
 }
+[data-theme="dark"] .scenario-card h4 { color: #e5e7eb; }
 
 .scenario-card p {
   margin: 4px 0;

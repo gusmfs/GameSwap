@@ -70,12 +70,12 @@ header {
 .theme-switch.is-light .switch-thumb { transform: translateX(26px); }
 
 /* Use white sun/moon icons centered inside the blue thumb */
-.theme-switch.is-dark .switch-thumb::before { content: "☀️"; }
-.theme-switch.is-light .switch-thumb::before { content: "🌙"; }
+.theme-switch.is-dark .switch-thumb::before { content: "☀️"; filter: brightness(0) invert(1); }
+.theme-switch.is-light .switch-thumb::before { content: "🌙"; filter: brightness(0) invert(1); }
 
 /* Light mode adjustments for header */
 [data-theme="light"] header {
-  background: #ffffff;
+  background: #ccc;
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 

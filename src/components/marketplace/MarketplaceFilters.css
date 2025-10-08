@@ -152,6 +152,7 @@
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+[data-theme="light"] .filters-panel.open { border-top: 1px solid #e5e7eb; }
 
 .loading {
   text-align: center;
@@ -178,6 +179,7 @@
   font-weight: 500;
   font-size: 0.9rem;
 }
+[data-theme="light"] .filter-group label { color: #1e3a8a; }
 
 .filter-select {
   padding: 0.75rem;
@@ -189,6 +191,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+[data-theme="light"] .filter-select { background: #ffffff; border: 1px solid #d1d5db; color: #1f2937; }
 
 .filter-select:focus {
   outline: none;
@@ -201,6 +204,7 @@
   color: #fff;
   padding: 0.5rem;
 }
+[data-theme="light"] .filter-select option { background: #ffffff; color: #1f2937; }
 
 /* Responsive Design */
 @media (max-width: 768px) {
