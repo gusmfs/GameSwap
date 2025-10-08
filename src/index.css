@@ -186,6 +186,10 @@ iframe[src*="crisp"] {
   padding: 2rem 1rem;
   color: white;
 }
+[data-theme="light"] .cart-container {
+  background: linear-gradient(135deg, #e5e7eb 0%, #cbd5e1 50%, #e0e7ff 100%);
+  color: #1e3a8a;
+}
 
 .cart-content {
   max-width: 1200px;
@@ -207,6 +211,9 @@ iframe[src*="crisp"] {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+[data-theme="light"] .cart-title {
+  color: #1e3a8a;
 }
 
 .cart-badge {
@@ -230,6 +237,10 @@ iframe[src*="crisp"] {
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+[data-theme="light"] .cart-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
 
 .cart-item {
   display: flex;
@@ -241,6 +252,10 @@ iframe[src*="crisp"] {
   backdrop-filter: blur(16px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+[data-theme="light"] .cart-item {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
 .cart-item-image {

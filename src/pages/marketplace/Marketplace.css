@@ -7,6 +7,10 @@
   overflow: hidden;
   background: #0a0a0a;
 }
+[data-theme="light"] .marketplace {
+  background: #ffffff;
+  color: #111827;
+}
 
 .marketplace-container {
   position: relative;
@@ -181,6 +185,21 @@
   margin-bottom: 3rem;
 }
 
+/* Skins cards adopt header-like background in light mode */
+[data-theme="light"] .skin-card {
+  background: #ccc;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+[data-theme="light"] .skin-name {
+  color: #111827;
+}
+[data-theme="light"] .wear-info,
+[data-theme="light"] .weapon-type,
+[data-theme="light"] .price-label,
+[data-theme="light"] .market-price-label {
+  color: #374151;
+}
+
 /* Pagination */
 .pagination {
   display: flex;
@@ -206,6 +225,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+[data-theme="light"] .pagination-button {
+  background: #f3f4f6; /* cinza claro para não sumir no branco */
+  border: 1px solid #1e3a8a; /* borda azul escura */
+  color: #1e3a8a;
 }
 
 .pagination-button:hover:not(:disabled) {

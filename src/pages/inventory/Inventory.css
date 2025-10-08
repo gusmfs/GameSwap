@@ -5,6 +5,9 @@
   overflow: hidden;
   background: #0a0a0a;
 }
+[data-theme="light"] .inventory {
+  background: #ffffff;
+}
 
 .inventory-container {
   max-width: 1200px;
@@ -46,6 +49,10 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+[data-theme="light"] .stat-card {
+  background: #00d4ff; /* solicitado para destacar no fundo branco */
+  border: 1px solid #00d4ff;
 }
 
 .stat-card:hover {
@@ -109,6 +116,13 @@
   margin-bottom: 3rem;
 }
 
+[data-theme="light"] .items-grid .inventory-item,
+[data-theme="light"] .items-grid .card,
+[data-theme="light"] .items-grid > div {
+  background: #00d4ff;
+  border: 1px solid #00d4ff;
+}
+
 .loading-container,
 .error-container,
 .empty-state {
@@ -123,6 +137,11 @@
   margin: 2rem 0;
   min-height: 300px;
   gap: 1.5rem;
+}
+[data-theme="light"] .loading-container,
+[data-theme="light"] .error-container,
+[data-theme="light"] .empty-state {
+  background: #00d4ff;
 }
 
 .empty-state h3 {
