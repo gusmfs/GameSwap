@@ -236,6 +236,13 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Light mode for the inventory modal */
+[data-theme="light"] .inventory-modal-content {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.15);
+}
+
 .inventory-modal-content h2 {
   color: #fff;
   font-size: 1.5rem;
@@ -243,6 +250,7 @@
   margin-bottom: 2rem;
   text-align: center;
 }
+[data-theme="light"] .inventory-modal-content h2 { color: #1f2937; }
 
 .form-group {
   margin-bottom: 1.5rem;
@@ -255,6 +263,7 @@
   margin-bottom: 0.5rem;
   font-family: "Electrolize", sans-serif;
 }
+[data-theme="light"] .form-group label { color: #374151; }
 
 .form-group input,
 .form-group select {
@@ -266,6 +275,12 @@
   color: #fff;
   font-family: "Electrolize", sans-serif;
   transition: all 0.3s ease;
+}
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group select {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
 }
 
 .form-group input:focus,
@@ -327,6 +342,11 @@
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+[data-theme="light"] .cancel-button {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #e5e7eb;
 }
 
 .cancel-button:hover {

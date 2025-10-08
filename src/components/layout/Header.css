@@ -48,20 +48,7 @@ header {
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.theme-switch .switch-icon {
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.theme-switch.is-light .switch-icon {
-  left: auto;
-  right: 8px;
-}
+.theme-switch .switch-icon { display: none; }
 
 .theme-switch .switch-thumb {
   position: absolute;
@@ -73,15 +60,22 @@ header {
   box-shadow: 0 2px 6px rgba(59,130,246,0.5);
   transform: translateX(0);
   transition: transform 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
 }
 
-.theme-switch.is-light .switch-thumb {
-  transform: translateX(26px);
-}
+.theme-switch.is-light .switch-thumb { transform: translateX(26px); }
+
+/* Use white sun/moon icons centered inside the blue thumb */
+.theme-switch.is-dark .switch-thumb::before { content: "☀️"; }
+.theme-switch.is-light .switch-thumb::before { content: "🌙"; }
 
 /* Light mode adjustments for header */
 [data-theme="light"] header {
-  background: #ccc;
+  background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 

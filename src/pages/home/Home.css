@@ -253,6 +253,19 @@ body, html {
   overflow: hidden;
 }
 
+/* Light mode: clear, harmonious background matching site identity */
+[data-theme="light"] .featured-section {
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  border-top: 1px solid #e5e7eb;
+}
+
+[data-theme="light"] .featured-title { color: #1e293b; text-shadow: none; }
+[data-theme="light"] .featured-subtitle { color: #475569; opacity: 1; }
+[data-theme="light"] .featured-card-wrapper .price-section {
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid #e2e8f0;
+}
+
 .featured-section::before {
   content: '';
   position: absolute;
