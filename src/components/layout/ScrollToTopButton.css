@@ -1,8 +1,8 @@
 .scroll-to-top {
-  position: fixed;
+  position: fixed !important;
   right: 1rem;
-  bottom: 1rem;
-  z-index: 1000;
+  bottom: 9rem;
+  z-index: 9999 !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -43,10 +43,28 @@
   border: 0;
 }
 
+@media (max-width: 1024px) {
+  .scroll-to-top {
+    right: 0.75rem;
+    bottom: 7rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    right: 0.75rem;
+    bottom: 5.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
 @media (max-width: 480px) {
   .scroll-to-top {
     right: 0.75rem;
-    bottom: 0.75rem;
+    bottom: 5rem;
     width: 2.75rem;
     height: 2.75rem;
   }

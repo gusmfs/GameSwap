@@ -8,6 +8,7 @@
 
 .admin-dashboard {
   min-height: 100vh;
+  background: #0a0a0a;
   display: flex;
   flex-direction: column;
 }

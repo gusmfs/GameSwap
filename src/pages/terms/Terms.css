@@ -11,41 +11,6 @@
   overflow: hidden;
 }
 
-.animated-background {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.blur-circle {
-  position: absolute;
-  width: 16rem;
-  height: 16rem;
-  border-radius: 50%;
-  filter: blur(4rem);
-  opacity: 0.2;
-  animation: float 6s ease-in-out infinite;
-}
-
-.blur-circle.circle1 {
-  background: #3b82f6;
-  top: 5rem;
-  left: 5rem;
-}
-
-.blur-circle.circle2 {
-  background: #8b5cf6;
-  top: 10rem;
-  right: 5rem;
-  animation-delay: 2s;
-}
-
-.blur-circle.circle3 {
-  background: #ec4899;
-  bottom: -2rem;
-  left: 10rem;
-  animation-delay: 4s;
-}
 
 .terms-container {
   position: relative;
@@ -139,14 +104,6 @@
   text-align: center;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
 
 /* Responsive */
 @media (max-width: 768px) {

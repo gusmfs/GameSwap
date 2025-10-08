@@ -93,12 +93,6 @@ const Marketplace = () => {
 
   return (
     <main className="marketplace">
-      <div className="animated-background">
-        <div className="blur-circle circle1"></div>
-        <div className="blur-circle circle2"></div>
-        <div className="blur-circle circle3"></div>
-        <div className="blur-circle circle4"></div>
-      </div>
       <div className="marketplace-container">
         <div className="marketplace-header">
           <h1 className="marketplace-title">
