@@ -1,0 +1,14 @@
+/* ========================================
+   VALIDATION PAGE - ESTILOS
+   ======================================== */
+
+.validation-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+[data-theme="dark"] .validation-page {
+  background: #0f172a;
+}
+
+/* Herda estilos do ValidationDashboard */

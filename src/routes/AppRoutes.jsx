@@ -18,6 +18,7 @@ import AdminDashboard from '../pages/admin/AdminDashboard';
 import FeedbackPage from '../pages/feedback/FeedbackPage';
 import ResetPassword from '../pages/login/ResetPassword';
 import Acessibilidade from '../pages/terms/Acessibilidade';
+import ValidationPage from '../pages/validation/ValidationPage';
 
 // Definição de todas as rotas da aplicação
 const AppRoutes = () => {
@@ -36,6 +37,7 @@ const AppRoutes = () => {
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/feedback" element={<FeedbackPage />} />
       <Route path="/acessibilidade" element={<Acessibilidade />} />
+      <Route path="/validation" element={<ValidationPage />} />
 
       {/* Rotas Privadas */}
       <Route
