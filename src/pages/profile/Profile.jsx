@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUser, FaEdit, FaCommentDots } from 'react-icons/fa';
 import { useAuth } from '../../providers/AuthProvider';
 import AgentSelector from '../../components/profile/AgentSelector';
 import ProfileTabs from '../../components/profile/ProfileTabs';
-import ProfileDashboard from '../../components/profile/ProfileDashboard';
 import ProfileDashboardModal from '../../components/profile/ProfileDashboardModal';
 import ProfileBio from '../../components/profile/ProfileBio';
 import FeedbackForm from '../../components/feedback/FeedbackForm';
+import ProfileHeader from '../../components/profile/ProfileHeader';
+import ProfileStatsBar from '../../components/profile/ProfileStatsBar';
+import ProfileSidebar from '../../components/profile/ProfileSidebar';
+import ProfileFeed from '../../components/profile/ProfileFeed';
 import userProfileService from '../../services/userProfileService';
 import { 
   recordProfileVisit, 
@@ -103,63 +105,37 @@ const Profile = () => {
 
   return (
     <div className="profile-page">
-      
+      <ProfileHeader
+        user={user}
+        avatarUrl={avatarUrl}
+        selectedAgent={selectedAgent}
+        onSelectAgent={() => setShowAgentSelector(true)}
+        onOpenPublicProfile={handleOpenPublicProfile}
+      />
+
       <div className="profile-container">
-        <div className="profile-header">
-          <h1 className="profile-title">Perfil do Usuário</h1>
-        </div>
+        <ProfileStatsBar userId={user?.id} user={user} />
 
-        <div className="profile-content">
-          <div className="profile-card">
-            {/* Seção de Avatar */}
-            <div className="profile-avatar-section">
-              <h3>Avatar do Perfil</h3>
-              <div className="avatar-container">
-                <div className="current-avatar">
-                  {(selectedAgent?.image || avatarUrl) ? (
-                    <img src={selectedAgent?.image || avatarUrl} alt={selectedAgent?.name || 'Avatar do perfil'} />
-                  ) : (
-                    <div className="default-avatar">
-                      <FaUser />
-                    </div>
-                  )}
-                </div>
-                <button 
-                  className="select-agent-btn"
-                  onClick={() => setShowAgentSelector(true)}
-                >
-                  <FaEdit />
-                  Selecionar Agente CS2
-                </button>
-                <button 
-                  className="select-agent-btn"
-                  onClick={handleOpenPublicProfile}
-                >
-                  Ver perfil público
-                </button>
-              </div>
-            </div>
-
-            <div className="profile-info">
-              <div className="info-group">
-                <label>Nome</label>
-                <p>{user?.name || 'N/A'}</p>
-              </div>
-              
-              <div className="info-group">
-                <label>Email</label>
-                <p>{user?.email || 'N/A'}</p>
-              </div>
-
-              <div className="info-group">
-                <label>Membro desde</label>
-                <p>{user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A'}</p>
-              </div>
-            </div>
-
-            {/* Abas do perfil */}
+        <div className="profile-main">
+          <main className="profile-main-content">
             <ProfileTabs
               tabs={[
+                {
+                  id: 'feed',
+                  label: 'Feed',
+                  content: (
+                    <section className="profile-section" aria-label="Atividades recentes">
+                      <ProfileFeed user={user} />
+                    </section>
+                  ),
+                },
+                {
+                  id: 'bio',
+                  label: 'Bio',
+                  content: (
+                    <ProfileBio />
+                  ),
+                },
                 {
                   id: 'overview',
                   label: 'Visão Geral',
@@ -169,13 +145,6 @@ const Profile = () => {
                         Abrir Visão Geral
                       </button>
                     </section>
-                  ),
-                },
-                {
-                  id: 'bio',
-                  label: 'Bio',
-                  content: (
-                    <ProfileBio />
                   ),
                 },
               ]}
@@ -188,58 +157,18 @@ const Profile = () => {
               }}
             />
 
-            {/* Privacidade e rastreamento */}
-            <section className="profile-section" aria-labelledby="privacy-title">
-              <h3 id="privacy-title">Privacidade</h3>
-              <p className="muted">Controle se visitas ao seu perfil são registradas para estatísticas pessoais.</p>
-              <div className="toggle-row">
-                <input
-                  id="profile-tracking"
-                  type="checkbox"
-                  checked={trackingEnabled}
-                  onChange={handleToggleTracking}
-                />
-                <label htmlFor="profile-tracking">Permitir registrar visitas ao meu perfil</label>
-              </div>
-            </section>
-
-            {/* Feedback Section */}
-            <section className="profile-section" aria-labelledby="feedback-title">
-              <h3 id="feedback-title">Feedback</h3>
-              <p className="muted">Ajude-nos a melhorar o GameSwap com suas sugestões e reportes.</p>
-              <div className="feedback-buttons">
-                <button 
-                  className="feedback-btn"
-                  onClick={() => setIsFeedbackOpen(true)}
-                >
-                  <FaCommentDots />
-                  Enviar Feedback
-                </button>
-                <button 
-                  className="feedback-btn feedback-btn-secondary"
-                  onClick={handleOpenFeedbackPage}
-                >
-                  Página de Feedback
-                </button>
-              </div>
-            </section>
-
-            <div className="profile-stats">
-              <div className="stat-item">
-                <span className="stat-value">{user?.transactions?.length || 0}</span>
-                <span className="stat-label">Transações</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-value">{user?.inventory?.length || 0}</span>
-                <span className="stat-label">Itens no Inventário</span>
-              </div>
-            </div>
-
             <button className="logout-button" onClick={handleLogout}>
               <span className="button-text">Sair</span>
               <div className="button-glow"></div>
             </button>
-          </div>
+          </main>
+
+          <ProfileSidebar
+            onOpenPublicProfile={handleOpenPublicProfile}
+            onOpenFeedback={() => setIsFeedbackOpen(true)}
+            trackingEnabled={trackingEnabled}
+            onToggleTracking={handleToggleTracking}
+          />
         </div>
       </div>
 

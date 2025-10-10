@@ -14,6 +14,7 @@ import Register from '../pages/register/Register';
 import Terms from '../pages/terms/Terms';
 import Privacy from '../pages/terms/Privacy';
 import SocialProfile from '../pages/social/SocialProfile';
+import PublicProfile from '../pages/social/PublicProfile';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import FeedbackPage from '../pages/feedback/FeedbackPage';
 import ResetPassword from '../pages/login/ResetPassword';
@@ -30,6 +31,7 @@ const AppRoutes = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/u/:slug" element={<SocialProfile />} />
       <Route path="/u/id/:userId" element={<SocialProfile />} />
+      <Route path="/public/:username" element={<PublicProfile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset-password" element={<ResetPassword />} />
