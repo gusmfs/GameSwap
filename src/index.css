@@ -305,34 +305,63 @@ iframe[src*="crisp"] {
 
 .cart-btn {
   width: 100%;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.5rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  border: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  border: 1.5px solid transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: 0.01em;
 }
 
 .cart-btn-primary {
-  background-color: #3b82f6;
-  color: white;
+  background-color: #6366f1;
+  border-color: #6366f1;
+  color: #ffffff;
 }
 
 .cart-btn-primary:hover {
-  background-color: #2563eb;
+  background-color: #4f46e5;
+  border-color: #4f46e5;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.cart-btn-primary:active {
+  transform: translateY(0);
+}
+
+.cart-btn-primary:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
 }
 
 .cart-btn-success {
   background-color: #10b981;
-  color: white;
+  border-color: #10b981;
+  color: #ffffff;
 }
 
 .cart-btn-success:hover {
   background-color: #059669;
+  border-color: #059669;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.cart-btn-success:active {
+  transform: translateY(0);
+}
+
+.cart-btn-success:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
 }
 
 .cart-btn-danger {
@@ -341,15 +370,43 @@ iframe[src*="crisp"] {
 }
 
 .cart-btn-disabled {
-  background-color: #6b7280;
-  color: #9ca3af;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.4);
   cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .cart-btn-disabled:hover {
-  background-color: #6b7280;
+  background-color: rgba(255, 255, 255, 0.05);
   transform: none;
-  box-shadow: none;
+}
+
+/* Light theme adjustments for buttons */
+[data-theme="light"] .cart-btn-primary {
+  background-color: #6366f1;
+  border-color: #6366f1;
+}
+
+[data-theme="light"] .cart-btn-primary:hover {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+[data-theme="light"] .cart-btn-success {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+[data-theme="light"] .cart-btn-success:hover {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+[data-theme="light"] .cart-btn-disabled {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.35);
 }
 
 .cart-summary-item {

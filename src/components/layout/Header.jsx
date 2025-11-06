@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../providers/AuthProvider';
 import { useCart } from '../../hooks/useCart.jsx';
 import AuthModal from '../auth/AuthModal';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet } from 'react-icons/fa';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import logoImage from '../../assets/Images/LOGOTIPO(POSITIVO).png';
 import logoLightMode from '../../assets/Images/LOGOTIPO GAMESWAP (NEGATIVO).png';
 import { useTheme } from '../../providers/ThemeProvider.jsx';
+import { formatPrice } from '../../utils/formatPrice';
 import './Header.css';
 
 const Header = () => {
@@ -15,7 +16,7 @@ const Header = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const { cart, cartState } = useCart();
   const { theme, toggleTheme } = useTheme();
 
@@ -80,6 +81,14 @@ const Header = () => {
             </Link>
           </div>
           <div className="nav-actions">
+            {/* Exibir saldo quando usuário está autenticado */}
+            {isAuthenticated && user && (
+              <div className="user-balance">
+                <FaWallet className="balance-icon" />
+                <span className="balance-label">Saldo:</span>
+                <span className="balance-value">{formatPrice(user.balance || 0)}</span>
+              </div>
+            )}
             <button
               className={`theme-switch ${theme === 'dark' ? 'is-dark' : 'is-light'}`}
               onClick={toggleTheme}

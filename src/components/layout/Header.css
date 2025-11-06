@@ -30,6 +30,64 @@ header {
   margin-left: auto;
 }
 
+/* User Balance Styles */
+.user-balance {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 8px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+}
+
+.user-balance:hover {
+  background: rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.balance-icon {
+  font-size: 1.1rem;
+  color: #60a5fa;
+}
+
+.balance-label {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.balance-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #60a5fa;
+}
+
+[data-theme="light"] .user-balance {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="light"] .user-balance:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="light"] .balance-icon {
+  color: #3b82f6;
+}
+
+[data-theme="light"] .balance-label {
+  color: #4b5563;
+}
+
+[data-theme="light"] .balance-value {
+  color: #1e40af;
+}
+
 /* Theme switch styles */
 .theme-switch {
   margin-right: 1.5rem; /* padding lateral da borda direita */
@@ -178,6 +236,19 @@ header {
 
   .logo {
     padding-left: 0.5rem;
+  }
+
+  .user-balance {
+    padding: 0.4rem 0.75rem;
+    margin-right: 0.5rem;
+  }
+
+  .balance-label {
+    display: none; /* Ocultar label em mobile para economizar espaço */
+  }
+
+  .balance-value {
+    font-size: 0.9rem;
   }
 
   .menu-toggle {
@@ -386,5 +457,18 @@ header {
   .logo-image {
     height: 50px;
     scale: 2.0;
+  }
+
+  .user-balance {
+    padding: 0.35rem 0.6rem;
+    gap: 0.35rem;
+  }
+
+  .balance-icon {
+    font-size: 0.95rem;
+  }
+
+  .balance-value {
+    font-size: 0.85rem;
   }
 }

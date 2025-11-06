@@ -10,27 +10,32 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 // 5. Usar HTTPS
 
 // Base de dados simulada de usuários (em produção, seria no backend)
+const INITIAL_BALANCE = 1349.00; // Saldo inicial de vendas realizadas no site
+
 const mockUsers = [
   {
     id: '1',
     email: 'admin@gameswap.com',
     password: 'admin123', // ⚠️ Em produção, senhas devem ser hasheadas
     name: 'Administrador',
-    role: 'admin'
+    role: 'admin',
+    balance: INITIAL_BALANCE
   },
   {
     id: '2', 
     email: 'admin@teste.com',
     password: 'admin123',
     name: 'Admin Teste',
-    role: 'admin'
+    role: 'admin',
+    balance: INITIAL_BALANCE
   },
   {
     id: '3',
     email: 'user@teste.com', 
     password: 'user123',
     name: 'Usuário Teste',
-    role: 'user'
+    role: 'user',
+    balance: INITIAL_BALANCE
   }
 ];
 
@@ -58,6 +63,7 @@ const authService = {
     const { password: _, ...userWithoutPassword } = user;
     return {
       ...userWithoutPassword,
+      balance: user.balance !== undefined ? user.balance : INITIAL_BALANCE, // Garantir saldo inicial
       createdAt: new Date().toISOString(),
       inventory: [],
       transactions: []
@@ -90,6 +96,7 @@ const authService = {
       password: userData.password, // ⚠️ Em produção, hash a senha
       birthDate: userData.birthDate,
       role: 'user', // Novos usuários sempre são 'user'
+      balance: INITIAL_BALANCE, // Saldo inicial para novos usuários
       createdAt: new Date().toISOString(),
       inventory: [],
       transactions: []
